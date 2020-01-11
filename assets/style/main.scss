@@ -1,0 +1,10 @@
+@import 'reset.scss';
+
+#app.v-application {
+  a {
+    color: #333;
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
