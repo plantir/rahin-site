@@ -1,13 +1,13 @@
 <template>
   <v-app dark>
-    <section v-if="$device.isDesktop">
-      <DesktopHeader />
+    <!-- <section v-if="$device.isDesktop">
+      <DesktopHeader /> -->
       <nuxt />
-      <DesktopFooter />
-    </section>
-    <section v-else>
+      <!-- <DesktopFooter />
+    </section> -->
+    <!-- <section v-else>
       <MobileHeader />
-    </section>
+    </section> -->
   </v-app>
 </template>
 <script lang="ts">
