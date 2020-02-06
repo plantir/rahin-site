@@ -40,6 +40,7 @@
 }
 footer {
   margin-top: 5rem;
+  display: flex;
   img {
     width: 100%;
     height: 100%;

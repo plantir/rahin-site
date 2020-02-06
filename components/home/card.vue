@@ -125,12 +125,17 @@
         <div class="border"></div>
         <div class="radio">
           <ul>
-            <li class="check">بسته شامل موارد فوق میباشد</li>
             <li>
-              <div></div>بسته شامل موارد فوق میباشد
+              <v-icon color="primary">la-check-circle</v-icon>
+              <span>بسته شامل موارد فوق میباشد</span>
             </li>
             <li>
-              <div></div>بسته شامل موارد فوق میباشد
+              <v-icon>la-circle</v-icon>
+              <span>بسته شامل موارد فوق میباشد</span>
+            </li>
+            <li>
+              <v-icon>la-circle</v-icon>
+              <span>بسته شامل موارد فوق میباشد</span>
             </li>
           </ul>
         </div>
@@ -149,4 +154,3 @@
 import Vue from 'vue'
 export default Vue.extend({})
 </script>
-

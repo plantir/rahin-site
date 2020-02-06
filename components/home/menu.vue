@@ -1,4 +1,3 @@
-
 <style lang="scss">
 .menu {
   background-color: #fff;
@@ -36,13 +35,17 @@
       margin: 0;
       padding: 0;
       li {
-        display: inline;
+        display: inline-flex;
         padding: 14px 16px;
         font-weight: 500;
+        min-width: 100px;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
         cursor: pointer;
+        border-radius: 30px;
         &:hover {
           background: #9ef1f4;
-          border-radius: 30px;
         }
       }
     }
