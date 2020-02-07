@@ -33,7 +33,7 @@ export default {
     }
   },
   styleResources: {
-    scss: ['./assets/style/_variables.scss']
+    scss: ['./assets/style/_variables.scss', './assets/style/_mixins.scss']
   },
   buildModules: [
     [
@@ -122,7 +122,7 @@ export default {
     theme: {
       themes: {
         light: {
-          primary: colors.red.darken2,
+          primary: colors.cyan.base,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3
           // info: colors.teal.lighten1,

@@ -1,13 +1,10 @@
-<style lang="scss">
+<style lang="scss" scoped>
 .under_menu_background {
   height: 959px;
   background-image: url(~assets/img/index_background.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  @include respond-to(md) {
-    margin-top: 80px;
-  }
   .wrapper {
     height: 55%;
     display: flex;
@@ -64,13 +61,15 @@
         }
       }
     }
-    .start {
+    a.start {
+      margin: 1rem auto;
       padding: 1rem;
-      color: #fff;
+      color: #fff !important;
       width: 200px;
       border-radius: 50px;
-      background-image: linear-gradient(to left, #fe7966, #ffda71);
+      @include orange-gradient;
       display: flex;
+      align-items: center;
       span:first-child {
         font-weight: 500;
         font-size: 20px;
@@ -84,7 +83,6 @@
         .v-icon {
           color: #fff;
           font-size: 25px;
-          font-weight: bold;
         }
       }
     }
@@ -93,9 +91,9 @@
 </style>
 <template>
   <div>
-    <div>
+    <!-- <div>
       <desktopMenu />
-    </div>
+    </div>-->
     <div class="under_menu_background">
       <div class="wrapper">
         <div class="space"></div>
@@ -109,23 +107,23 @@
             <br />سوالات جواب بده
           </p>
         </div>
-        <div class="start">
+        <nuxt-link class="start" to="/free-test">
           <span>شروع</span>
           <span>
             <v-icon>keyboard_arrow_left</v-icon>
           </span>
-        </div>
+        </nuxt-link>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import desktopMenu from './menu.vue'
+// import desktopMenu from './menu.vue'
 import Vue from 'vue'
 export default Vue.extend({
   components: {
-    desktopMenu
+    // desktopMenu
   }
 })
 </script>

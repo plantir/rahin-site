@@ -38,14 +38,6 @@
   text-align: center;
   margin: 2rem 0;
 }
-footer {
-  margin-top: 5rem;
-  display: flex;
-  img {
-    width: 100%;
-    height: 100%;
-  }
-}
 </style>
 <template>
   <div>
@@ -96,9 +88,6 @@ footer {
     <div class="copyright">
       <p>2011-2019 NERIS Analytics Limited &copy;</p>
     </div>
-    <footer>
-      <img src="~assets/img/footer_image.png" alt />
-    </footer>
   </div>
 </template>
 

@@ -1,0 +1,7 @@
+@mixin orange-gradient {
+  background-image: linear-gradient(
+    to left,
+    $orange-gradient-start,
+    $orange-gradient-end
+  );
+}

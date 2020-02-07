@@ -29,8 +29,10 @@
     color: #fff;
     width: 200px;
     border-radius: 50px;
-    background-image: linear-gradient(to left, #fe7966, #ffda71);
+    @include orange-gradient;
+    // background-image: linear-gradient(to left, #fe7966, #ffda71);
     display: flex;
+    align-items: center;
     span:first-child {
       font-weight: 500;
       font-size: 20px;
@@ -44,7 +46,6 @@
       .v-icon {
         color: #fff;
         font-size: 25px;
-        font-weight: bold;
       }
     }
   }
