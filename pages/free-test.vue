@@ -129,7 +129,6 @@ header {
 .questions {
   margin: 0 auto;
   width: 100%;
-  max-width: 1200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -151,7 +150,7 @@ header {
         justify-content: center;
         flex: 1;
         img {
-          max-width: 240px;
+          max-width: 400px;
         }
       }
       .options {
@@ -279,70 +278,78 @@ header {
     </div>
     <div class="quiz-chunk">
       <div class="questions">
-        <div class="question" v-for="(question,i) in questions" :key="i">
-          <div class="statement"></div>
-          <div class="decision">
-            <div class="question-caption agree">
-              <img :src="question.captions.agreeIcon" alt />
-              <span>{{question.captions.agreeText}}</span>
-            </div>
-            <div class="options">
-              <div
-                @click="set_answer(question,7)"
-                :class="{active:question.answer == 7}"
-                class="option agree max"
-              >
-                <v-icon>la-check</v-icon>
+        <transition
+          mode="out-in"
+          appear
+          enter-active-class="animated flipInX"
+          leave-active-class="animated fadeOut"
+          tag="div"
+        >
+          <div :key="page" class="question">
+            <div class="statement"></div>
+            <div class="decision">
+              <div class="question-caption agree">
+                <img :src="question.captions.agreeIcon" alt />
+                <span>{{question.captions.agreeText}}</span>
               </div>
-              <div
-                @click="set_answer(question,6)"
-                :class="{active:question.answer == 6}"
-                class="option agree med"
-              >
-                <v-icon>la-check</v-icon>
+              <div class="options">
+                <div
+                  @click="set_answer(question,7)"
+                  :class="{active:question.answer == 7}"
+                  class="option agree max"
+                >
+                  <v-icon>la-check</v-icon>
+                </div>
+                <div
+                  @click="set_answer(question,6)"
+                  :class="{active:question.answer == 6}"
+                  class="option agree med"
+                >
+                  <v-icon>la-check</v-icon>
+                </div>
+                <div
+                  @click="set_answer(question,5)"
+                  :class="{active:question.answer == 5}"
+                  class="option agree min"
+                >
+                  <v-icon>la-check</v-icon>
+                </div>
+                <div
+                  @click="set_answer(question,4)"
+                  :class="{active:question.answer == 4}"
+                  class="option neutral"
+                >
+                  <v-icon>la-check</v-icon>
+                </div>
+                <div
+                  @click="set_answer(question,3)"
+                  :class="{active:question.answer == 3}"
+                  class="option disagree min"
+                >
+                  <v-icon>la-check</v-icon>
+                </div>
+                <div
+                  @click="set_answer(question,2)"
+                  :class="{active:question.answer == 2}"
+                  class="option disagree med"
+                >
+                  <v-icon>la-check</v-icon>
+                </div>
+                <div
+                  @click="set_answer(question,1)"
+                  :class="{active:question.answer == 1}"
+                  class="option disagree max"
+                >
+                  <v-icon>la-check</v-icon>
+                </div>
               </div>
-              <div
-                @click="set_answer(question,5)"
-                :class="{active:question.answer == 5}"
-                class="option agree min"
-              >
-                <v-icon>la-check</v-icon>
+              <div class="question-caption disagree">
+                <img :src="question.captions.disagreeIcon" alt />
+                <span>{{question.captions.disagreeText}}</span>
               </div>
-              <div
-                @click="set_answer(question,4)"
-                :class="{active:question.answer == 4}"
-                class="option neutral"
-              >
-                <v-icon>la-check</v-icon>
-              </div>
-              <div
-                @click="set_answer(question,3)"
-                :class="{active:question.answer == 3}"
-                class="option disagree min"
-              >
-                <v-icon>la-check</v-icon>
-              </div>
-              <div
-                @click="set_answer(question,2)"
-                :class="{active:question.answer == 2}"
-                class="option disagree med"
-              >
-                <v-icon>la-check</v-icon>
-              </div>
-              <div
-                @click="set_answer(question,1)"
-                :class="{active:question.answer == 1}"
-                class="option disagree max"
-              >
-                <v-icon>la-check</v-icon>
-              </div>
-            </div>
-            <div class="question-caption disagree">
-              <img :src="question.captions.disagreeIcon" alt />
-              <span>{{question.captions.disagreeText}}</span>
             </div>
           </div>
-        </div>
+        </transition>
       </div>
       <v-btn v-if="Math.ceil(percentage) == 100" @click="finish" class="next-page" color="primary">
         <v-icon>la-arrow-right</v-icon>
@@ -365,6 +372,7 @@ export default Vue.extend({
       perPage: 1,
       allQuestions: [
         {
+          id: 1,
           captions: {
             agreeText: 'هیچگاه دیر سر قرار حاضر نمی شوم',
             agreeIcon: '/personality/free-test/time+.jpeg',
@@ -374,6 +382,7 @@ export default Vue.extend({
           answer: null
         },
         {
+          id: 2,
           captions: {
             agreeText: 'بسیار رقابتگر هستم',
             agreeIcon: '/personality/free-test/time+.jpeg',
@@ -383,6 +392,7 @@ export default Vue.extend({
           answer: null
         },
         {
+          id: 3,
           captions: {
             agreeText: 'در صحبت با دیگران به آنها مجال حرف زدن میدهم',
             agreeIcon: '/personality/free-test/time+.jpeg',
@@ -392,6 +402,7 @@ export default Vue.extend({
           answer: null
         },
         {
+          id: 4,
           captions: {
             agreeText: 'همیشه عجله میکنم',
             agreeIcon: '/personality/free-test/time+.jpeg',
@@ -401,6 +412,7 @@ export default Vue.extend({
           answer: null
         },
         {
+          id: 5,
           captions: {
             agreeText: 'وقتی در انتظار به سر میبرم بی صبری میکنم',
             agreeIcon: '/personality/free-test/time+.jpeg',
@@ -410,6 +422,7 @@ export default Vue.extend({
           answer: null
         },
         {
+          id: 6,
           captions: {
             agreeText: 'در کارها تمام انرژی ام را صرف میکنم',
             agreeIcon: '/personality/free-test/time+.jpeg',
@@ -419,6 +432,7 @@ export default Vue.extend({
           answer: null
         },
         {
+          id: 7,
           captions: {
             agreeText: 'سعی میکنم چندین کار هم زمان انجام بدهم',
             agreeIcon: '/personality/free-test/time+.jpeg',
@@ -428,6 +442,7 @@ export default Vue.extend({
           answer: null
         },
         {
+          id: 8,
           captions: {
             agreeText: 'با تاکید صحبت میکنم',
             agreeIcon: '/personality/free-test/time+.jpeg',
@@ -437,6 +452,7 @@ export default Vue.extend({
           answer: null
         },
         {
+          id: 9,
           captions: {
             agreeText: 'میخواهم در هر کاری که انجام میدهم دیگران با خبر شوند',
             agreeIcon: '/personality/free-test/time+.jpeg',
@@ -446,6 +462,7 @@ export default Vue.extend({
           answer: null
         },
         {
+          id: 10,
           captions: {
             agreeText: 'در غذا خوردن و راه رفتن و ... سریع هستم',
             agreeIcon: '/personality/free-test/time+.jpeg',
@@ -455,6 +472,7 @@ export default Vue.extend({
           answer: null
         },
         {
+          id: 11,
           captions: {
             agreeText: 'فردی جوشی و پرتنش هستم',
             agreeIcon: '/personality/free-test/time+.jpeg',
@@ -464,6 +482,7 @@ export default Vue.extend({
           answer: null
         },
         {
+          id: 12,
           captions: {
             agreeText: 'احساساتم را برای دیگران بیان نمیکنم',
             agreeIcon: '/personality/free-test/time+.jpeg',
@@ -473,6 +492,7 @@ export default Vue.extend({
           answer: null
         },
         {
+          id: 13,
           captions: {
             agreeText: 'به غیر از شغلم سرگرمی دیگری ندارم',
             agreeIcon: '/personality/free-test/time+.jpeg',
@@ -482,6 +502,7 @@ export default Vue.extend({
           answer: null
         },
         {
+          id: 14,
           captions: {
             agreeText: 'بلند پرواز بوده و به دنبال مقام هستم',
             agreeIcon: '/personality/free-test/time+.jpeg',
@@ -496,10 +517,12 @@ export default Vue.extend({
   methods: {
     set_answer(question, value) {
       question.answer = value
-      this.percentage = (this.page / this.allQuestions.length) * 100
-      if (this.page < this.allQuestions.length) {
-        this.page += 1
-      }
+      setTimeout(() => {
+        this.percentage = (this.page / this.allQuestions.length) * 100
+        if (this.page < this.allQuestions.length) {
+          this.page += 1
+        }
+      }, 100)
     },
     finish() {
       alert('با موفقیت ثبت شد')
@@ -512,6 +535,11 @@ export default Vue.extend({
     }
   },
   computed: {
+    question(): any {
+      let startIndex = (this.page - 1) * this.perPage
+      let endIndex = startIndex + this.perPage
+      return this.allQuestions[this.page - 1]
+    },
     questions(): any[] {
       let startIndex = (this.page - 1) * this.perPage
       let endIndex = startIndex + this.perPage

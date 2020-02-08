@@ -70,7 +70,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['vrwebdesign-nuxt/assets/style/main.scss', '~assets/style/main.scss'],
+  css: [
+    'vrwebdesign-nuxt/assets/style/main.scss',
+    '~assets/style/main.scss',
+    'animate.css/animate.css'
+  ],
   /*
    ** Plugins to load before mounting the App
    */

@@ -6,7 +6,8 @@
   border-radius: 50px;
   padding: 2rem;
   position: absolute;
-  top: 40px;
+  top: 32px;
+  height: 96px;
   margin: 0 auto;
   left: 0;
   right: 0;
@@ -58,6 +59,8 @@
       }
     }
   }
+  .left-panel {
+  }
   .search {
     margin-left: 0;
     border: 2px solid #0ad6df;
@@ -93,22 +96,35 @@
     </div>
     <div class="menuItems">
       <ul>
-        <nuxt-link to tag="li">صفحه اصلی</nuxt-link>
-        <nuxt-link to tag="li">محصولات</nuxt-link>
+        <nuxt-link to="/" tag="li">صفحه اصلی</nuxt-link>
         <nuxt-link to tag="li">قوانین</nuxt-link>
         <nuxt-link to tag="li">راهنما</nuxt-link>
         <nuxt-link to tag="li">درباره ما</nuxt-link>
         <nuxt-link to tag="li">تماس با ما</nuxt-link>
       </ul>
     </div>
-    <div class="search">
+    <div class="left-panel">
+      <v-btn @click="login" color="secondary" outlined rounded>ورود</v-btn>
+      <v-btn to="/free-test" color="primary" outlined rounded>شروع تست</v-btn>
+    </div>
+    <!-- <div class="search">
       <v-icon>search</v-icon>
       <input type="text" placeholder="جستجو" />
-    </div>
+    </div>-->
   </div>
 </template>
 
 <script lang="ts">
+import LoginDialog from '@/components/auth/login.vue'
 import Vue from 'vue'
-export default Vue.extend({})
+export default Vue.extend({
+  methods: {
+    login() {
+      this.$dialog.show({
+        component: LoginDialog,
+        dialog_wrapper_custom_class: 'login-dialog'
+      })
+    }
+  }
+})
 </script>

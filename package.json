@@ -23,6 +23,7 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/svg": "^0.1.6",
+    "animate.css": "^3.7.2",
     "file-loader": "^4.0.0",
     "lodash-es": "^4.17.15",
     "nuxt": "^2.10.2",
