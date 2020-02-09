@@ -237,10 +237,7 @@ header {
   <div id="free-test">
     <header>
       <h1>تست شخصیت رایگان</h1>
-      <div class="trademark">
-        <sup>®</sup>
-        قلم چی
-      </div>
+      <div class="trademark">انجام این تست کمک میکنه تا بفهمی چجور شخصیتی داری</div>
     </header>
     <section class="tips">
       <div class="tip first">

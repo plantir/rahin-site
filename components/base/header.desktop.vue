@@ -53,7 +53,8 @@
         height: 40px;
         cursor: pointer;
         border-radius: 30px;
-        &:hover {
+        &:hover,
+        &.nuxt-link-exact-active {
           background: #9ef1f4;
         }
       }
@@ -97,10 +98,9 @@
     <div class="menuItems">
       <ul>
         <nuxt-link to="/" tag="li">صفحه اصلی</nuxt-link>
-        <nuxt-link to tag="li">قوانین</nuxt-link>
-        <nuxt-link to tag="li">راهنما</nuxt-link>
-        <nuxt-link to tag="li">درباره ما</nuxt-link>
-        <nuxt-link to tag="li">تماس با ما</nuxt-link>
+        <nuxt-link to="faq" tag="li">سوالات متداول</nuxt-link>
+        <nuxt-link to="/aboutus" tag="li">درباره ما</nuxt-link>
+        <nuxt-link to="/contactus" tag="li">تماس با ما</nuxt-link>
       </ul>
     </div>
     <div class="left-panel">
