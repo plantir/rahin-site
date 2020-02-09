@@ -12,7 +12,7 @@
   left: 0;
   right: 0;
   display: none;
-  z-index: 1;
+  z-index: 10;
   @include respond-to(md) {
     display: flex;
     justify-content: space-between;
