@@ -1,5 +1,5 @@
 <style lang="scss">
-.menu {
+#nav-header {
   background-color: #fff;
   color: #4570ab;
   width: 80%;
@@ -55,12 +55,33 @@
         border-radius: 30px;
         &:hover,
         &.nuxt-link-exact-active {
-          background: #9ef1f4;
+          background: $primary-color;
+          color: #fff;
         }
       }
     }
   }
   .left-panel {
+    .user-wrapper {
+      display: flex;
+      align-items: center;
+      .v-list-item {
+        border-bottom: 1px solid #eee;
+      }
+      .text {
+        margin-right: 8px;
+      }
+      .profile-wrapper {
+        clip-path: polygon(56% 0, 95% 25%, 100% 75%, 49% 91%, 0 69%, 10% 26%);
+        background-color: #e5e6e7;
+        width: 80px;
+        margin-bottom: -5px;
+        img {
+          width: 80px;
+          height: 80px;
+        }
+      }
+    }
   }
   .search {
     margin-left: 0;
@@ -91,7 +112,7 @@
 </style>
 
 <template>
-  <div class="menu">
+  <div id="nav-header" class="menu">
     <div class="logo">
       <img src="/logo.svg" alt />
     </div>
@@ -104,8 +125,64 @@
       </ul>
     </div>
     <div class="left-panel">
-      <v-btn @click="login" color="secondary" outlined rounded>ورود</v-btn>
-      <v-btn to="/free-test" color="primary" outlined rounded>شروع تست</v-btn>
+      <template v-if="user">
+        <v-menu
+          attach
+          offset-y
+          nudge-left="70"
+          nudge-bottom="8"
+          min-width="220"
+          transition="slide-y-transition"
+        >
+          <template v-slot:activator="{ on }">
+            <div class="user-wrapper" v-on="on">
+              <div class="profile-wrapper">
+                <img src="/face/male.svg" />
+              </div>
+              <!-- <span class="text">خوش اومدی!</span> -->
+            </div>
+          </template>
+          <v-list nav>
+            <v-list-item color="primary" to="/profile" exact>
+              <v-list-item-icon>
+                <v-icon>la-user</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>پروفایل</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item color="primary" to="/profile/setting">
+              <v-list-item-icon>
+                <v-icon>la-cog</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>تنظیمات</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item color="primary" to="/profile/result">
+              <v-list-item-icon>
+                <v-icon>la-poll</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>نتایج</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-divider></v-divider>
+            <v-list-item color="primary" @click="logout">
+              <v-list-item-icon>
+                <v-icon>la-sign-out-alt</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>خروج</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </template>
+      <template v-else>
+        <v-btn @click="login" color="secondary" outlined rounded>ورود</v-btn>
+        <v-btn to="/free-test" color="primary" outlined rounded>شروع تست</v-btn>
+      </template>
     </div>
     <!-- <div class="search">
       <v-icon>search</v-icon>
@@ -118,12 +195,20 @@
 import LoginDialog from '@/components/auth/login.vue'
 import Vue from 'vue'
 export default Vue.extend({
+  data() {
+    return {
+      user: {}
+    }
+  },
   methods: {
     login() {
       this.$dialog.show({
         component: LoginDialog,
         dialog_wrapper_custom_class: 'login-dialog'
       })
+    },
+    logout() {
+      console.log('logout')
     }
   }
 })
