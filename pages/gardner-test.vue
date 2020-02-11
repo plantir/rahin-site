@@ -367,7 +367,7 @@ export default Vue.extend({
     return {
       page: 1,
       perPage: 5,
-      result: null,
+      result: <any>null,
       chartData: {
         chart: {
           polar: true,
@@ -965,6 +965,7 @@ export default Vue.extend({
       let next = e.target.closest('.question').nextElementSibling
       question.answer = value
       this.$scrollTo(next, 1000, { offset: -150 })
+      this.$axios
     },
     finish() {
       this.result = true

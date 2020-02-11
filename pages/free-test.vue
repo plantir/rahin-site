@@ -365,16 +365,16 @@ export default Vue.extend({
   data() {
     return {
       percentage: 0,
-      page: 1,
+      page: 13,
       perPage: 1,
       allQuestions: [
         {
           id: 1,
           captions: {
             agreeText: 'هیچگاه دیر سر قرار حاضر نمی شوم',
-            agreeIcon: '/personality/free-test/time+.jpeg',
+            agreeIcon: '/personality/free-test/time+.png',
             disagreeText: 'در قرار ملاقات ها چندان مقید نیستم',
-            disagreeIcon: '/personality/free-test/time-.jpeg'
+            disagreeIcon: '/personality/free-test/time-.png'
           },
           answer: null
         },
@@ -382,19 +382,19 @@ export default Vue.extend({
           id: 2,
           captions: {
             agreeText: 'بسیار رقابتگر هستم',
-            agreeIcon: '/personality/free-test/time+.jpeg',
+            agreeIcon: '/personality/free-test/reghabat-.png',
             disagreeText: 'علاقمند به رقابت با دیگران نیستم',
-            disagreeIcon: '/personality/free-test/time-.jpeg'
+            disagreeIcon: '/personality/free-test/reghabat+.png'
           },
           answer: null
         },
         {
           id: 3,
           captions: {
-            agreeText: 'در صحبت با دیگران به آنها مجال حرف زدن میدهم',
-            agreeIcon: '/personality/free-test/time+.jpeg',
+            agreeText: 'در صحبت با دیگران به آنها مجال حرف زدن نمیدهم',
+            agreeIcon: '/personality/free-test/shenava-.png',
             disagreeText: 'در صحبت با دیگران شونده خوبی هستم',
-            disagreeIcon: '/personality/free-test/time-.jpeg'
+            disagreeIcon: '/personality/free-test/shenava+.png'
           },
           answer: null
         },
@@ -402,9 +402,9 @@ export default Vue.extend({
           id: 4,
           captions: {
             agreeText: 'همیشه عجله میکنم',
-            agreeIcon: '/personality/free-test/time+.jpeg',
+            agreeIcon: '/personality/free-test/ajale+.png',
             disagreeText: 'هیچگاه عجله ندارم حتی تحت فشار',
-            disagreeIcon: '/personality/free-test/time-.jpeg'
+            disagreeIcon: '/personality/free-test/ajale-.png'
           },
           answer: null
         },
@@ -412,9 +412,9 @@ export default Vue.extend({
           id: 5,
           captions: {
             agreeText: 'وقتی در انتظار به سر میبرم بی صبری میکنم',
-            agreeIcon: '/personality/free-test/time+.jpeg',
+            agreeIcon: '/personality/free-test/relax+.png',
             disagreeText: 'می توانم صبورانه در انتظار باشم',
-            disagreeIcon: '/personality/free-test/time-.jpeg'
+            disagreeIcon: '/personality/free-test/relax-.png'
           },
           answer: null
         },
@@ -422,9 +422,9 @@ export default Vue.extend({
           id: 6,
           captions: {
             agreeText: 'در کارها تمام انرژی ام را صرف میکنم',
-            agreeIcon: '/personality/free-test/time+.jpeg',
+            agreeIcon: '/personality/free-test/energy+.png',
             disagreeText: 'در کارها چندان جدی نیستم',
-            disagreeIcon: '/personality/free-test/time-.jpeg'
+            disagreeIcon: '/personality/free-test/energy-.png'
           },
           answer: null
         },
@@ -432,9 +432,9 @@ export default Vue.extend({
           id: 7,
           captions: {
             agreeText: 'سعی میکنم چندین کار هم زمان انجام بدهم',
-            agreeIcon: '/personality/free-test/time+.jpeg',
+            agreeIcon: '/personality/free-test/hamzaman+.png',
             disagreeText: 'کارها را به نوبت انجام میدهم',
-            disagreeIcon: '/personality/free-test/time-.jpeg'
+            disagreeIcon: '/personality/free-test/hamzaman-.png'
           },
           answer: null
         },
@@ -442,9 +442,9 @@ export default Vue.extend({
           id: 8,
           captions: {
             agreeText: 'با تاکید صحبت میکنم',
-            agreeIcon: '/personality/free-test/time+.jpeg',
+            agreeIcon: '/personality/free-test/takid-.png',
             disagreeText: 'با تامل و آرام صحبت میکنم',
-            disagreeIcon: '/personality/free-test/time-.jpeg'
+            disagreeIcon: '/personality/free-test/takid+.png'
           },
           answer: null
         },
@@ -452,9 +452,9 @@ export default Vue.extend({
           id: 9,
           captions: {
             agreeText: 'میخواهم در هر کاری که انجام میدهم دیگران با خبر شوند',
-            agreeIcon: '/personality/free-test/time+.jpeg',
+            agreeIcon: '/personality/free-test/digaran+.png',
             disagreeText: 'در انجام هر کاری به فکر رضایت خود هستم',
-            disagreeIcon: '/personality/free-test/time-.jpeg'
+            disagreeIcon: '/personality/free-test/digaran-.png'
           },
           answer: null
         },
@@ -462,9 +462,9 @@ export default Vue.extend({
           id: 10,
           captions: {
             agreeText: 'در غذا خوردن و راه رفتن و ... سریع هستم',
-            agreeIcon: '/personality/free-test/time+.jpeg',
+            agreeIcon: '/personality/free-test/sari+.png',
             disagreeText: 'کارها را آرام و آهسته انجام میدهم',
-            disagreeIcon: '/personality/free-test/time-.jpeg'
+            disagreeIcon: '/personality/free-test/sari-.png'
           },
           answer: null
         },
@@ -472,9 +472,9 @@ export default Vue.extend({
           id: 11,
           captions: {
             agreeText: 'فردی جوشی و پرتنش هستم',
-            agreeIcon: '/personality/free-test/time+.jpeg',
+            agreeIcon: '/personality/free-test/jushi-.png',
             disagreeText: 'فردی صبور و آرام هستم',
-            disagreeIcon: '/personality/free-test/time-.jpeg'
+            disagreeIcon: '/personality/free-test/jushi+.png'
           },
           answer: null
         },
@@ -482,9 +482,9 @@ export default Vue.extend({
           id: 12,
           captions: {
             agreeText: 'احساساتم را برای دیگران بیان نمیکنم',
-            agreeIcon: '/personality/free-test/time+.jpeg',
+            agreeIcon: '/personality/free-test/ehsasat+.png',
             disagreeText: 'احساساتم را به سادگی بیان میکنم',
-            disagreeIcon: '/personality/free-test/time-.jpeg'
+            disagreeIcon: '/personality/free-test/ehsasat-.png'
           },
           answer: null
         },
@@ -492,9 +492,9 @@ export default Vue.extend({
           id: 13,
           captions: {
             agreeText: 'به غیر از شغلم سرگرمی دیگری ندارم',
-            agreeIcon: '/personality/free-test/time+.jpeg',
+            agreeIcon: '/personality/free-test/shoql-.png',
             disagreeText: 'سرگرمی های بسیاری دارم',
-            disagreeIcon: '/personality/free-test/time-.jpeg'
+            disagreeIcon: '/personality/free-test/shoql+.png'
           },
           answer: null
         },
@@ -502,9 +502,9 @@ export default Vue.extend({
           id: 14,
           captions: {
             agreeText: 'بلند پرواز بوده و به دنبال مقام هستم',
-            agreeIcon: '/personality/free-test/time+.jpeg',
+            agreeIcon: '/personality/free-test/bolandparvaz+.png',
             disagreeText: 'به همین شغل فعلی راضیم',
-            disagreeIcon: '/personality/free-test/time-.jpeg'
+            disagreeIcon: '/personality/free-test/bolandparvaz-.png'
           },
           answer: null
         }
