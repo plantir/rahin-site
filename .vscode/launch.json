@@ -18,6 +18,17 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "test",
+      "runtimeExecutable": "nodemon",
+      "program": "${workspaceFolder}/test.js",
+      "restart": true,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\start"

@@ -30,6 +30,16 @@
         color: #fff;
         margin-top: 0;
       }
+      a {
+        color: #fff;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      .company-info {
+        margin-top: 20px;
+        color: darken($primary-color, 30);
+      }
       .tell {
         font-size: 1.5rem;
       }

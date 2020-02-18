@@ -26,6 +26,12 @@
       justify-content: center;
       flex-direction: column;
       font-size: 16px;
+      a {
+        color: #fff;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
       h1 {
         color: #fff;
         margin-top: 0;
@@ -67,6 +73,10 @@
             color: #fff;
           }
         }
+      }
+      .company-info {
+        margin-top: 20px;
+        color: darken($primary-color, 30);
       }
     }
   }
