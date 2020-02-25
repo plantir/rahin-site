@@ -6,8 +6,8 @@
   "private": true,
   "scripts": {
     "dev": "nuxt-ts",
-    "build": "nuxt build",
-    "start": "nuxt start",
+    "build": "nuxt-ts build",
+    "start": "nuxt=ts start",
     "generate": "nuxt generate",
     "release": "git push origin develop && git push origin master && git push dist develop && git push dist master",
     "test": "jest"
