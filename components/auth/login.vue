@@ -79,7 +79,7 @@
 }
 </style>
 <template>
-  <div id="login-dialog">
+  <div id="login-dialog" ref="wrapper">
     <img class="wave" src="./wave.svg" alt />
     <img
       class="user"
@@ -101,6 +101,7 @@
             data-vv-as="شماره موبایل"
             name="mobile"
             label="شماره موبایل"
+            ref="mobile"
             @keyup.enter="register"
             solo
           ></v-text-field>
@@ -113,19 +114,20 @@
         </div>
         <div class="verify" v-show="mode == 'verify'">
           <div class="mb-4">
-            <div>کد ۴ رقمی اس ام اس شده را وارد نمایید</div>
+            <div>کد ۶ رقمی اس ام اس شده را وارد نمایید</div>
             <div>
               <a class="primary--text" @click="resendSMS">ارسال مجدد کد</a>
             </div>
           </div>
           <v-text-field
-            v-validate="{required:true,digits:4}"
+            v-validate="{required:true,digits:6}"
             autocomplete="off"
             v-model="user.password"
             :error-messages="errors.collect('password')"
-            data-vv-as="کد ۴ رقمی"
+            data-vv-as="کد ۶ رقمی"
             name="password"
-            label="کد ۴ رقمی"
+            label="کد ۶ رقمی"
+            ref="password"
             @keyup.enter="verify"
             solo
           ></v-text-field>
@@ -146,28 +148,53 @@ export default Vue.extend({
   data() {
     return {
       user: {
-        mobile: null
+        mobile: null,
+        password: null
       },
       mode: 'register'
     }
   },
+  mounted() {
+    let mobileField = this.$refs.mobile as HTMLInputElement
+    mobileField.focus()
+  },
   methods: {
     async register() {
-      console.log('register')
       let valid = await this.$validator.validate('mobile')
       if (valid) {
-        this.mode = 'verify'
-        // setTimeout(() => {
-        //   this.$validator.errors.clear()
-        // }, 10)
-        // this.$validator.errors.clear()
+        let loader = this.$loader.show(this.$refs.wrapper)
+        try {
+          await this.$service.auth.register(this.user.mobile)
+          this.mode = 'verify'
+          let passwordField = this.$refs.password as HTMLInputElement
+          setImmediate(passwordField.focus)
+        } catch (error) {
+          this.$toast
+            .timeout(10000)
+            .error()
+            .showSimple('خطایی رخ داده است لطفا مجددا تلاش کنید')
+        }
+        loader.hide()
       }
     },
     async verify() {
-      console.log('register')
       let valid = await this.$validator.validate('password')
       if (valid) {
-        alert('با موفقیت وارد شدید')
+        let loader = this.$loader.show(this.$refs.wrapper)
+        try {
+          let { data } = await this.$service.auth.login({
+            mobile: this.user.mobile,
+            password: this.user.password
+          })
+          this.$store.commit('auth/set_token', data)
+          this.$dialog.destroy()
+        } catch (error) {
+          this.$toast
+            .error()
+            .timeout(10000)
+            .showSimple('کد وارد شده صحیح نمیباشد')
+        }
+        loader.hide()
         // this.$validator.errors.clear()
       }
     },

@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section ref="wrapper">
     <v-layout row wrap>
       <v-flex xs2></v-flex>
       <v-flex xs8>
@@ -29,7 +29,7 @@ export default Vue.extend({
             disabled: true,
             browserAutocomplete: 'new-password',
             placeholder: 'شماره موبایل را وارد نمایید',
-            model: 'username'
+            model: 'mobile'
           }
         ]
       },
@@ -61,7 +61,7 @@ export default Vue.extend({
             label: 'شماره ثابت',
             type: 'textField',
             placeholder: 'شماره ثابت را وارد نمایید',
-            model: 'phone'
+            model: 'tel'
           },
           {
             label: 'تاریخ تولد',
@@ -80,13 +80,6 @@ export default Vue.extend({
             ],
             placeholder: 'جنسیت را وارد نمایید',
             model: 'gender'
-          },
-          {
-            label: 'گروه خونی',
-            type: 'select',
-            items: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
-            placeholder: 'گروه خونی را وارد نمایید',
-            model: 'blood_type'
           }
         ]
       }
@@ -94,6 +87,17 @@ export default Vue.extend({
     return {
       formData,
       model: {}
+    }
+  },
+  async mounted() {
+    let loader = this.$loader.show(this.$refs.wrapper)
+    let { data } = await this.$service.user.get()
+    this.model = data
+    loader.hide()
+  },
+  methods: {
+    async save() {
+      let { data } = await this.$service.user.update(this.model)
     }
   }
 })

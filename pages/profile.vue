@@ -125,7 +125,7 @@ section {
               <div class="profile-wrapper">
                 <img src="/face/male.svg" />
               </div>
-              <div class="text">سلام آرمین!</div>
+              <div class="text">سلام {{user.name}}!</div>
             </div>
             <div class="card mastery">
               <div class="background"></div>
@@ -185,6 +185,13 @@ export default Vue.extend({
         }
       ],
       value: 20
+    }
+  },
+  computed: {
+    user() {
+      debugger
+      let user = this.$store.state.auth.user
+      return user
     }
   }
 })

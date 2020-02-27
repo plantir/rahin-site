@@ -196,9 +196,7 @@ import LoginDialog from '@/components/auth/login.vue'
 import Vue from 'vue'
 export default Vue.extend({
   data() {
-    return {
-      user: {}
-    }
+    return {}
   },
   methods: {
     login() {
@@ -208,7 +206,12 @@ export default Vue.extend({
       })
     },
     logout() {
-      console.log('logout')
+      this.$store.commit('auth/logout')
+    }
+  },
+  computed: {
+    user() {
+      return this.$store.state.auth.token
     }
   }
 })

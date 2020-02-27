@@ -1,1 +1,2 @@
-import '../hotels'
+import '../auth'
+import '../user'
