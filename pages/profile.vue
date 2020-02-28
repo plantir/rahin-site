@@ -123,7 +123,8 @@ section {
           <div class="right-side">
             <div class="user-section">
               <div class="profile-wrapper">
-                <img src="/face/male.svg" />
+                <img v-if="user.gender == 'female'" src="/face/female.svg" />
+                <img v-else src="/face/male.svg" />
               </div>
               <div class="text">سلام {{user.name}}!</div>
             </div>
@@ -149,7 +150,7 @@ section {
           <div class="main-content">
             <vr-navbar :items="navigation"></vr-navbar>
             <div class="wrapper">
-              <nuxt-child></nuxt-child>
+              <nuxt-child v-if="user" @change="onUserChange" :user="user"></nuxt-child>
             </div>
           </div>
         </v-flex>
@@ -184,14 +185,17 @@ export default Vue.extend({
           base: `/profile/`
         }
       ],
-      value: 20
+      value: 20,
+      user: {}
     }
   },
-  computed: {
-    user() {
-      debugger
-      let user = this.$store.state.auth.user
-      return user
+  async mounted() {
+    let { data } = await this.$service.user.get()
+    this.user = data
+  },
+  methods: {
+    onUserChange(user) {
+      this.user = user
     }
   }
 })

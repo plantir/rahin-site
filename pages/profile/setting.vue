@@ -17,6 +17,11 @@
 import Vue from 'vue'
 import { VRFormData } from 'vrwebdesign-nuxt/modules/nuxt-form-generator/types'
 export default Vue.extend({
+  props: {
+    user: {
+      default: {}
+    }
+  },
   data() {
     let formData: VRFormData = [
       {
@@ -76,7 +81,7 @@ export default Vue.extend({
             type: 'radio',
             items: [
               { text: 'پسر', value: 'male' },
-              { text: 'دختر', value: 'famale', color: 'pink' }
+              { text: 'دختر', value: 'female', color: 'pink' }
             ],
             placeholder: 'جنسیت را وارد نمایید',
             model: 'gender'
@@ -86,18 +91,21 @@ export default Vue.extend({
     ]
     return {
       formData,
-      model: {}
+      model: this.user
     }
   },
-  async mounted() {
-    let loader = this.$loader.show(this.$refs.wrapper)
-    let { data } = await this.$service.user.get()
-    this.model = data
-    loader.hide()
-  },
+  async mounted() {},
   methods: {
     async save() {
-      let { data } = await this.$service.user.update(this.model)
+      let loader = this.$loader.show(this.$refs.wrapper)
+      try {
+        let { data } = await this.$service.user.update(this.model)
+        this.$toast.success().showSimple('با موفقیت ذخیره شد')
+        this.$emit('change', data)
+      } catch (error) {
+        this.$toast.error().showSimple('خطایی رخ داده است')
+      }
+      loader.hide()
     }
   }
 })
