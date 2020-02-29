@@ -1,7 +1,12 @@
 <style lang="scss" scoped>
+img {
+  max-width: 100%;
+}
 </style>
 <template>
-  <section></section>
+  <section>
+    <img src="/img/road_map_2.png" alt />
+  </section>
 </template>
 <script lang="ts">
 import Vue from 'vue'

@@ -2,7 +2,7 @@ import jwtDecode from 'jwt-decode'
 export const state = () => ({
   token: null,
   refreshToken: null,
-  user: {}
+  user: null
 })
 export const mutations = {
   set_token(state, params) {
@@ -19,7 +19,7 @@ export const mutations = {
     localStorage.removeItem('auth')
     state.token = null
     state.refreshToken = null
-    state.user = {}
+    state.user = null
     return (<any>this).$axios.setToken(false)
   },
   init(state, $axios) {
@@ -35,12 +35,10 @@ export const mutations = {
       let { data } = jwtDecode(state.token)
       state.user = data
     }
+  },
+  change_user_info(state, params) {
+    state.user = params
   }
 }
 export const actions = {}
-export const getters = {
-  token(state) {
-    return state.token
-  },
-  user(state) {}
-}
+export const getters = {}

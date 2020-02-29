@@ -114,7 +114,7 @@
 <template>
   <div id="nav-header" class="menu">
     <div class="logo">
-      <img src="/logo.svg" alt />
+      <img src="~assets/img/logo.png" alt />
     </div>
     <div class="menuItems">
       <ul>
@@ -137,26 +137,18 @@
           <template v-slot:activator="{ on }">
             <div class="user-wrapper" v-on="on">
               <div class="profile-wrapper">
-                <img src="/face/male.svg" />
+                <img v-if="user.gender == 'female'" src="/face/female.svg" />
+                <img v-else src="/face/male.svg" />
               </div>
-              <!-- <span class="text">خوش اومدی!</span> -->
             </div>
           </template>
           <v-list nav>
-            <v-list-item color="primary" to="/profile" exact>
+            <v-list-item color="primary" to="/profile/dashboard" exact>
               <v-list-item-icon>
-                <v-icon>la-user</v-icon>
+                <v-icon>la-tachometer-alt</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title>پروفایل</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item color="primary" to="/profile/setting">
-              <v-list-item-icon>
-                <v-icon>la-cog</v-icon>
-              </v-list-item-icon>
-              <v-list-item-content>
-                <v-list-item-title>تنظیمات</v-list-item-title>
+                <v-list-item-title>داشبورد</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
             <v-list-item color="primary" to="/profile/result">
@@ -165,6 +157,14 @@
               </v-list-item-icon>
               <v-list-item-content>
                 <v-list-item-title>نتایج</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item color="primary" to="/profile/info">
+              <v-list-item-icon>
+                <v-icon>la-user</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>مشخصات</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
             <v-divider></v-divider>
@@ -184,10 +184,6 @@
         <v-btn to="/free-test" color="primary" outlined rounded>شروع تست</v-btn>
       </template>
     </div>
-    <!-- <div class="search">
-      <v-icon>search</v-icon>
-      <input type="text" placeholder="جستجو" />
-    </div>-->
   </div>
 </template>
 
@@ -211,7 +207,7 @@ export default Vue.extend({
   },
   computed: {
     user() {
-      return this.$store.state.auth.token
+      return this.$store.state.auth.user
     }
   }
 })

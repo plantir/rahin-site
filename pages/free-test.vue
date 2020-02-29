@@ -365,7 +365,7 @@ export default Vue.extend({
   data() {
     return {
       percentage: 0,
-      page: 1,
+      page: 14,
       perPage: 1,
       allQuestions: [
         {
@@ -521,8 +521,13 @@ export default Vue.extend({
         }
       }, 100)
     },
-    finish() {
-      alert('با موفقیت ثبت شد')
+    async finish() {
+      let { data } = await this.$service.personalityTest.answer({
+        questions: this.allQuestions,
+        type: 'free'
+      })
+      this.$router.push(`personality/type${data.answer.type}`)
+      console.log(data)
     },
     nextPage() {
       this.page += 1

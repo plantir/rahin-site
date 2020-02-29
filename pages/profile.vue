@@ -36,6 +36,7 @@ section {
       align-items: center;
       background: #fff;
       padding: 25px;
+      min-height: 250px;
       @include box-shadow;
       .profile-wrapper {
         clip-path: polygon(56% 0, 95% 25%, 100% 75%, 49% 91%, 0 69%, 10% 26%);
@@ -106,6 +107,7 @@ section {
     .wrapper {
       background: #fff;
       padding: 36px;
+      min-height: 400px;
     }
   }
 }
@@ -121,12 +123,14 @@ section {
       <v-layout row wrap>
         <v-flex xs3 px-3>
           <div class="right-side">
-            <div class="user-section">
-              <div class="profile-wrapper">
-                <img v-if="user.gender == 'female'" src="/face/female.svg" />
-                <img v-else src="/face/male.svg" />
-              </div>
-              <div class="text">سلام {{user.name}}!</div>
+            <div class="user-section loadingWrapper" ref="userSection">
+              <template v-if="user">
+                <div class="profile-wrapper">
+                  <img v-if="user.gender == 'female'" src="/face/female.svg" />
+                  <img v-else src="/face/male.svg" />
+                </div>
+                <div class="text">سلام {{user.name}}!</div>
+              </template>
             </div>
             <div class="card mastery">
               <div class="background"></div>
@@ -149,7 +153,7 @@ section {
         <v-flex xs7 px-3>
           <div class="main-content">
             <vr-navbar :items="navigation"></vr-navbar>
-            <div class="wrapper">
+            <div class="wrapper loadingWrapper">
               <nuxt-child v-if="user" @change="onUserChange" :user="user"></nuxt-child>
             </div>
           </div>
@@ -165,11 +169,11 @@ export default Vue.extend({
     return {
       navigation: [
         {
-          icon: 'la-user',
-          title: 'پروفایل',
-          to: 'profile',
+          icon: 'la-tachometer-alt',
+          title: 'داشبورد',
+          to: 'dashboard',
           exact: true,
-          base: `/`
+          base: `/profile/`
         },
 
         {
@@ -179,23 +183,26 @@ export default Vue.extend({
           base: `/profile/`
         },
         {
-          icon: 'la-cog',
-          title: 'تنظیمات',
-          to: 'setting',
+          icon: 'la-user',
+          title: 'مشخصات',
+          to: 'info',
           base: `/profile/`
         }
       ],
       value: 20,
-      user: {}
+      user: null
     }
   },
   async mounted() {
+    let loader = this.$loader.show('.loadingWrapper')
     let { data } = await this.$service.user.get()
     this.user = data
+    loader.hide()
   },
   methods: {
     onUserChange(user) {
       this.user = user
+      this.$store.commit('auth/change_user_info', user)
     }
   }
 })
