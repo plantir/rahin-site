@@ -353,78 +353,22 @@ header {
       </v-btn>
     </div>
     <div v-if="result" class="result">
-      <div
-        class="display-2 text-center my-12 fontwe font-weight-medium blue-grey--text text--darken-1"
-      >نتیجه تست گاردنر شما</div>
-      <vr-chart :fullOption="chartData"></vr-chart>
+      <GarnderResult :data="result.answer" />
     </div>
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
+import GarnderResult from '@/components/personality_test/gardner_result.vue'
 export default Vue.extend({
+  components: {
+    GarnderResult
+  },
   data() {
     return {
       page: 1,
       perPage: 5,
       result: <any>null,
-      chartData: {
-        chart: {
-          polar: true,
-          type: 'line'
-        },
-        title: {
-          text: ''
-        },
-        pane: {
-          size: '100%'
-        },
-        xAxis: {
-          categories: [
-            'هوش زبانی-کلامی',
-            'هوش منطقی-ریاضی',
-            'هوش دیداری-فضایی',
-            'هوش بدنی-جنبشی',
-            'هوش میان فردی',
-            'هوش درون فردی',
-            'هوش موسیقیایی',
-            'هوش طبیعت گرا'
-          ],
-          tickmarkPlacement: 'on',
-          lineWidth: 0
-        },
-        yAxis: {
-          gridLineInterpolation: 'polygon',
-          lineWidth: 0,
-          min: 0,
-          max: 50
-        },
-        // legend: {
-        //   align: 'right',
-        //   verticalAlign: 'middle',
-        //   layout: 'vertical'
-        // },
-        tooltip: {
-          useHTML: true,
-          formatter: function() {
-            return (
-              ' <b>' +
-              (<any>this).x +
-              '</b> شما <b>' +
-              (<any>this).y +
-              '</b> از 50'
-            )
-          }
-        },
-        series: [
-          {
-            showInLegend: false,
-            type: 'area',
-            data: [15, 20, 38, 28, 35, 29, 22, 28]
-            // pointPlacement: 'on'
-          }
-        ]
-      },
       allQuestions: [
         {
           id: 1,
@@ -961,14 +905,23 @@ export default Vue.extend({
   },
   methods: {
     set_answer(e, question, value) {
-      console.log(e)
       let next = e.target.closest('.question').nextElementSibling
       question.answer = value
       this.$scrollTo(next, 1000, { offset: -150 })
       this.$axios
     },
-    finish() {
-      this.result = true
+    async finish() {
+      let loader = this.$loader.show('#app')
+      try {
+        let { data } = await this.$service.personalityTest.answer({
+          questions: this.allQuestions,
+          test_name: 'gardner'
+        })
+        this.result = data
+      } catch (error) {
+        this.$toast.error().showSimple('خطایی رخ داده است')
+      }
+      loader.hide()
     },
     nextPage() {
       this.page += 1

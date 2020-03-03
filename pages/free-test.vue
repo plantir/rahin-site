@@ -365,7 +365,7 @@ export default Vue.extend({
   data() {
     return {
       percentage: 0,
-      page: 14,
+      page: 1,
       perPage: 1,
       allQuestions: [
         {
@@ -524,7 +524,7 @@ export default Vue.extend({
     async finish() {
       let { data } = await this.$service.personalityTest.answer({
         questions: this.allQuestions,
-        type: 'free'
+        test_name: 'free'
       })
       this.$router.push(`personality/type${data.answer.type}`)
       console.log(data)

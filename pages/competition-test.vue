@@ -270,8 +270,9 @@ export default Vue.extend({
   data() {
     return {
       percentage: 0,
-      page: 1,
+      page: 80,
       perPage: 1,
+      result: <any>null,
       allQuestions: [
         {
           id: 1,
@@ -1003,6 +1004,9 @@ export default Vue.extend({
   methods: {
     set_answer(question, value) {
       question.answer = value
+      if (this.page == this.allQuestions.length) {
+        this.finish()
+      }
       setTimeout(() => {
         this.percentage = (this.page / this.allQuestions.length) * 100
         if (this.page < this.allQuestions.length) {
@@ -1010,8 +1014,18 @@ export default Vue.extend({
         }
       }, 100)
     },
-    finish() {
-      alert('با موفقیت ثبت شد')
+    async finish() {
+      let loader = this.$loader.show('#app')
+      try {
+        let { data } = await this.$service.personalityTest.answer({
+          questions: this.allQuestions,
+          test_name: 'competition'
+        })
+        this.result = data
+      } catch (error) {
+        this.$toast.error().showSimple('خطایی رخ داده است')
+      }
+      loader.hide()
     },
     nextPage() {
       this.page += 1

@@ -63,22 +63,22 @@ let arr = [
 let obj = arr.map((val, i) => {
   let type
   if (i % 6 == 0) {
-    type = 'Honesty-Humility'
+    type = 'honestyHumility'
   }
   if (i % 6 == 1) {
-    type = 'Emotionality'
+    type = 'emotionality'
   }
   if (i % 6 == 2) {
-    type = 'Extraversion'
+    type = 'extraversion'
   }
   if (i % 6 == 3) {
-    type = 'Agreeableness'
+    type = 'agreeableness'
   }
   if (i % 6 == 4) {
-    type = 'Conscientiousness'
+    type = 'conscientiousness'
   }
   if (i % 6 == 5) {
-    type = 'Openness to Experience'
+    type = 'opennessToRxperience'
   }
   return {
     id: i + 1,

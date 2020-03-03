@@ -353,468 +353,417 @@ header {
       </v-btn>
     </div>
     <div v-if="result" class="result">
-      <div
-        class="display-2 text-center my-12 fontwe font-weight-medium blue-grey--text text--darken-1"
-      >نتیجه تست گاردنر شما</div>
-      <vr-chart :fullOption="chartData"></vr-chart>
+      <HexacoResult :data="result.answer" />
     </div>
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
+import HexacoResult from '@/components/personality_test/hexaco_result.vue'
 export default Vue.extend({
+  components: { HexacoResult },
   data() {
     return {
-      page: 1,
+      page: 12,
       perPage: 5,
       result: <any>null,
-      chartData: {
-        chart: {
-          polar: true,
-          type: 'line'
-        },
-        title: {
-          text: ''
-        },
-        pane: {
-          size: '100%'
-        },
-        xAxis: {
-          categories: [
-            'تواضع و صداقت',
-            'هیجانی بودن',
-            'برون گرایی',
-            'توافق گرایی',
-            'توافق جویی',
-            'وجدانی بودن',
-            'گشودگی تجربیات'
-          ],
-          tickmarkPlacement: 'on',
-          lineWidth: 0
-        },
-        yAxis: {
-          gridLineInterpolation: 'polygon',
-          lineWidth: 0,
-          min: 0,
-          max: 50
-        },
-        tooltip: {
-          useHTML: true,
-          formatter: function() {
-            return (
-              ' <b>' +
-              (<any>this).x +
-              '</b> شما <b>' +
-              (<any>this).y +
-              '</b> از 50'
-            )
-          }
-        },
-        series: [
-          {
-            showInLegend: false,
-            type: 'area',
-            data: [38, 28, 35, 29, 22, 28]
-          }
-        ]
-      },
       allQuestions: [
         {
           id: 1,
           title:
             'اگر من از یک نمایشگاه هنری دیدن کنم، به صورت کلی حوصله ام سر می رود.',
           answer: null,
-          type: 'linguistic'
+          type: 'honestyHumility'
         },
         {
           id: 2,
           title:
             'از قبل برنامه ریزی می کنم و چیزها را سازماندهی می کنم تا در آخرین لحظه به دست و پا زدن نیفتم.',
           answer: null,
-          type: 'mathematical'
+          type: 'emotionality'
         },
         {
           id: 3,
           title:
             'خیلی به ندرت از کسی کینه به دل می گیرم، حتی در مورد کسانی که به من خیلی بد کرده اند.',
           answer: null,
-          type: 'visual'
+          type: 'extraversion'
         },
         {
           id: 4,
           title: 'براساس منطق و دلیل به صورت کلی از خودم راضی هستم.',
           answer: null,
-          type: 'kinesthetic'
+          type: 'agreeableness'
         },
         {
           id: 5,
           title:
             'اگر مجبور به سفر در شرایط بد آب و هوایی بشوم، دچار بیم و هراس می شوم.',
           answer: null,
-          type: 'interpersonal'
+          type: 'conscientiousness'
         },
         {
           id: 6,
           title:
             'برای ترفیع گرفتن یا جلو افتادن در کارم چاپلوسی نمی کنم، حتی اگر فکر کنم که تملق و چاپلوسی در آن شرایط موثر است.',
           answer: null,
-          type: 'intrapersonal'
+          type: 'opennessToRxperience'
         },
         {
           id: 7,
           title:
             'علاقه مند به آموختن در مورد تاریخ و مسایل سیاسی کشورهای دیگر هستم.',
           answer: null,
-          type: 'linguistic'
+          type: 'honestyHumility'
         },
         {
           id: 8,
           title:
             'وقتی روی دست یابی به هدفی کار می کنم، اغلب خیلی سخت تلاش می کنم.',
           answer: null,
-          type: 'mathematical'
+          type: 'emotionality'
         },
         {
           id: 9,
           title:
             'گاهی وقت ها مردم به من می گویند که خیلی از دیگران ایراد می گیرم.',
           answer: null,
-          type: 'visual'
+          type: 'extraversion'
         },
         {
           id: 10,
           title: 'در جلسات گروهی به ندرت نظر خودم را بیان می کنم.',
           answer: null,
-          type: 'kinesthetic'
+          type: 'agreeableness'
         },
         {
           id: 11,
           title: 'گاهی وقت ها نمی توانم جلوی نگرانیم برای مسایل کوچک را بگیرم.',
           answer: null,
-          type: 'interpersonal'
+          type: 'conscientiousness'
         },
         {
           id: 12,
           title:
             'اگر بدانم که احتمالا هیچ وقت گیر نمی افتم، ممکن است بخواهم یک میلیون دلار یا یورو بدزدم.',
           answer: null,
-          type: 'intrapersonal'
+          type: 'opennessToRxperience'
         },
         {
           id: 13,
           title:
             'اگر بتوانم یک اثر هنری مثل یک رمان داستانی یا یک آهنگ یا یک نقاشی خلق کنم، از آن کار لذت خواهم برد.',
           answer: null,
-          type: 'linguistic'
+          type: 'honestyHumility'
         },
         {
           id: 14,
           title:
             'وقتی روی چیزی کار می کنم، خیلی به جزییات و مسایل ریز دقت نمی کنم.',
           answer: null,
-          type: 'mathematical'
+          type: 'emotionality'
         },
         {
           id: 15,
           title: 'گاهی وقت ها مردم به من می گویند که خیلی یکدنده هستم.',
           answer: null,
-          type: 'visual'
+          type: 'extraversion'
         },
         {
           id: 16,
           title:
             'من کارهایی را که همراه با تعاملات اجتماعی باشد را به کارهایی که تنهایی باید انجام داد، ترجیح می دهم.',
           answer: null,
-          type: 'kinesthetic'
+          type: 'agreeableness'
         },
         {
           id: 17,
           title:
             'هرگاه از تجربه دردناکی رنج ببرم به کسی احتیاج دارم که به من احساس آرامش بدهد.',
           answer: null,
-          type: 'interpersonal'
+          type: 'conscientiousness'
         },
         {
           id: 18,
           title: 'داشتن یک عالمه پول برای من اهمیت خاصی ندارد.',
           answer: null,
-          type: 'intrapersonal'
+          type: 'opennessToRxperience'
         },
         {
           id: 19,
           title: 'به نظرم توجه به افکار افراطی وقت تلف کردن است.',
           answer: null,
-          type: 'linguistic'
+          type: 'honestyHumility'
         },
         {
           id: 20,
           title:
             'صمیم های من بیشتر نتیجه احساسی است که در آن لحظه دارم، شکل می گیرند و نه براساس فکر کردن دقیق.',
           answer: null,
-          type: 'mathematical'
+          type: 'emotionality'
         },
         {
           id: 21,
           title: 'دیگران فکر می کنند، من آدمی هستم که زود جوش می آورد.',
           answer: null,
-          type: 'visual'
+          type: 'extraversion'
         },
         {
           id: 22,
           title: 'اغلب روزها احساس سرزندگی و خوش بینی می کنم.',
           answer: null,
-          type: 'kinesthetic'
+          type: 'agreeableness'
         },
         {
           id: 23,
           title: 'وقتی دیگرانی را در حال گریه می بینم، من هم گریه ام می گیرد.',
           answer: null,
-          type: 'interpersonal'
+          type: 'conscientiousness'
         },
         {
           id: 24,
           title: 'فکر می کنم نسبت به متوسط مردم، از احترام بیشتری برخوردارم.',
           answer: null,
-          type: 'intrapersonal'
+          type: 'opennessToRxperience'
         },
         {
           id: 25,
           title:
             'اگر فرصت داشته باشیم، در یک کنسرت موسیقی سنتی و کلاسیک شرکت خواهم کرد.',
           answer: null,
-          type: 'linguistic'
+          type: 'honestyHumility'
         },
         {
           id: 26,
           title:
             'موقع کار، گاهی در کنار آمدن با بی برنامگی و بی نظمی مشکل دارم.',
           answer: null,
-          type: 'mathematical'
+          type: 'emotionality'
         },
         {
           id: 27,
           title:
             'رویکرد من نسبت به افرادی که به من بدی کرده اند این است که «ببخش و فراموش کن».',
           answer: null,
-          type: 'visual'
+          type: 'extraversion'
         },
         {
           id: 28,
           title: 'احساس می کنم آدم محبوبی نیستم.',
           answer: null,
-          type: 'kinesthetic'
+          type: 'agreeableness'
         },
         {
           id: 29,
           title:
             'وقتی پای خطرهای جسمانی به میان می آید، خیلی دچار هراس می شوم.',
           answer: null,
-          type: 'interpersonal'
+          type: 'conscientiousness'
         },
         {
           id: 30,
           title:
             'اگر کارم گیر کسی باشد حتی به بی‌مزه‌ترین جوک هایش هم می خندم.',
           answer: null,
-          type: 'intrapersonal'
+          type: 'opennessToRxperience'
         },
         {
           id: 31,
           title:
             'هیچ وقت از گشتن به دنبال مطلبی در فرهنگ ها و دانشنامه ها لذت نبرده ام.',
           answer: null,
-          type: 'linguistic'
+          type: 'honestyHumility'
         },
         {
           id: 32,
           title:
             'من فقط حداقل حجم کاری را که برای گذران امور لازم است، انجام می دهم.',
           answer: null,
-          type: 'mathematical'
+          type: 'emotionality'
         },
         {
           id: 33,
           title: 'در قضاوت هایم در مورد مردم، مایل به آسان گیری و مدارا هستم.',
           answer: null,
-          type: 'visual'
+          type: 'extraversion'
         },
         {
           id: 34,
           title:
             'در موقعیت های اجتماعی، معمولا اولین کسی هستم که پا پیش می گذارد و اولین حرکت را انجام می دهد.',
           answer: null,
-          type: 'kinesthetic'
+          type: 'agreeableness'
         },
         {
           id: 35,
           title: 'من نسبت به اغلب مردم کمتر نگران هستم.',
           answer: null,
-          type: 'interpersonal'
+          type: 'conscientiousness'
         },
         {
           id: 36,
           title: 'هیچ وقت رشوه قبول نمی کنم حتی اگر خیلی زیاد باشد.',
           answer: null,
-          type: 'intrapersonal'
+          type: 'opennessToRxperience'
         },
         {
           id: 37,
           title:
             'مردم اغلبه به من می گویند که من تصویر سازی و تخیل قوی ای دارم.',
           answer: null,
-          type: 'linguistic'
+          type: 'honestyHumility'
         },
         {
           id: 38,
           title:
             'من سعی می کنم همیشه در کارم دقیق باشم، حتی وقتی که تحت فشار زمانی هستم.',
           answer: null,
-          type: 'mathematical'
+          type: 'emotionality'
         },
         {
           id: 39,
           title:
             'من بیشتر اوقات وقتی دیگران با نظر من مخالفت می کنند در مورد نظرم انعطاف پذیر هستم.',
           answer: null,
-          type: 'visual'
+          type: 'extraversion'
         },
         {
           id: 40,
           title:
             'اولین کاری که در موقعیت های جدید انجام می دهم دوست شدن با افراد است.',
           answer: null,
-          type: 'kinesthetic'
+          type: 'agreeableness'
         },
         {
           id: 41,
           title:
             'بدون نیاز به حمایت عاطفی دیگران، می توانم از عهده موقعیت های سخت بر بیایم.',
           answer: null,
-          type: 'interpersonal'
+          type: 'conscientiousness'
         },
         {
           id: 42,
           title:
             'اگر ممکن باشد، از داشتن اجناس لوکس گران قیمت خیلی لذت می برم.',
           answer: null,
-          type: 'intrapersonal'
+          type: 'opennessToRxperience'
         },
         {
           id: 43,
           title: 'از افرادی که دیدگاه های غیر معمول دارند خوشم می آید.',
           answer: null,
-          type: 'linguistic'
+          type: 'honestyHumility'
         },
         {
           id: 44,
           title: 'من خیلی اشتباه می کنم چون قبل از عمل، فکر نمی کنم.',
           answer: null,
-          type: 'mathematical'
+          type: 'emotionality'
         },
         {
           id: 45,
           title: 'اغلب مردم سریعتر از من عصبانی می شوند.',
           answer: null,
-          type: 'visual'
+          type: 'extraversion'
         },
         {
           id: 46,
           title: 'اغلب مردم سرحال تر و پویا تر از حالت معمول من هستند.',
           answer: null,
-          type: 'kinesthetic'
+          type: 'agreeableness'
         },
         {
           id: 47,
           title:
             'وقتی افراد نزدیک به من برای مدت طولانی از من دور می شوند، سخت احساساتی می شوم.',
           answer: null,
-          type: 'interpersonal'
+          type: 'conscientiousness'
         },
         {
           id: 48,
           title:
             'می خواهم دیگران بدانند که من فردی مهم و و صاحب جایگاه و شان هستم.',
           answer: null,
-          type: 'intrapersonal'
+          type: 'opennessToRxperience'
         },
         {
           id: 49,
           title: 'خودم را جزیی از گروه افراد هنرمند و خلاق نمی دانم.',
           answer: null,
-          type: 'linguistic'
+          type: 'honestyHumility'
         },
         {
           id: 50,
           title: 'دیگران اغلب به من «کمالگرا» می گویند.',
           answer: null,
-          type: 'mathematical'
+          type: 'emotionality'
         },
         {
           id: 51,
           title:
             'حتی وقتی دیگران خیلی اشتباه می کنند، به ندرت چیزی منفی به زبان می آورم.',
           answer: null,
-          type: 'visual'
+          type: 'extraversion'
         },
         {
           id: 52,
           title: 'گاهی وقت ها احساس بی ارزشی می کنم.',
           answer: null,
-          type: 'kinesthetic'
+          type: 'agreeableness'
         },
         {
           id: 53,
           title: 'حتی در شرایط اضطراری، احساس وحشت زدگی نمی کنم.',
           answer: null,
-          type: 'interpersonal'
+          type: 'conscientiousness'
         },
         {
           id: 54,
           title:
             'فقط برای این که کسی کاری برایم انجام بدهد، وانمود نمی کنم که از او خوشم می آید.',
           answer: null,
-          type: 'intrapersonal'
+          type: 'opennessToRxperience'
         },
         {
           id: 55,
           title: 'بحث فلسفی به نظرم حوصله سربر است.',
           answer: null,
-          type: 'linguistic'
+          type: 'honestyHumility'
         },
         {
           id: 56,
           title:
             'ترجیح می دهم کاری را که به ذهنم می رسد انجام بدهم تا این که به اجرای یک برنامه از قبل ریخته شده بچسبم.',
           answer: null,
-          type: 'mathematical'
+          type: 'emotionality'
         },
         {
           id: 57,
           title:
             'وقتی دیگران به من می گویند که اشتباه می کنم، اولین واکنش من جدل کردن با آن ها است.',
           answer: null,
-          type: 'visual'
+          type: 'extraversion'
         },
         {
           id: 58,
           title:
             'وقتی در گروهی هستم، اغلب این من هستم که از طرف گروه صحبت می کنم.',
           answer: null,
-          type: 'kinesthetic'
+          type: 'agreeableness'
         },
         {
           id: 59,
           title:
             'حتی در موقعیت هایی که بیشتر مردم احساساتی می شوند، من غیر احساساتی می مانم.',
           answer: null,
-          type: 'interpersonal'
+          type: 'conscientiousness'
         },
         {
           id: 60,
           title:
             'اگر بدانم که گیر نمی افتم ممکن است که برای جعل پول وسوسه بشوم.',
           answer: null,
-          type: 'intrapersonal'
+          type: 'opennessToRxperience'
         }
       ]
     }
@@ -834,8 +783,18 @@ export default Vue.extend({
       this.$scrollTo(next, 1000, { offset: -150 })
       this.$axios
     },
-    finish() {
-      this.result = true
+    async finish() {
+      let loader = this.$loader.show('#app')
+      try {
+        let { data } = await this.$service.personalityTest.answer({
+          questions: this.allQuestions,
+          test_name: 'hexaco'
+        })
+        this.result = data
+      } catch (error) {
+        this.$toast.error().showSimple('خطایی رخ داده است')
+      }
+      loader.hide()
     },
     nextPage() {
       this.page += 1

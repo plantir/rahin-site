@@ -60,7 +60,7 @@
           </v-list-item>
           <v-card-text>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</v-card-text>
           <v-card-actions>
-            <v-btn v-if="gardner" text color="deep-purple accent-4">مشاهده نتیجه</v-btn>
+            <v-btn v-if="gardner" to="result/gardner" text color="deep-purple accent-4">مشاهده نتیجه</v-btn>
             <v-btn v-else text to="/gardner-test" color="deep-purple accent-4">انجام تست</v-btn>
           </v-card-actions>
         </v-card>
@@ -81,8 +81,8 @@
           </v-list-item>
           <v-card-text>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</v-card-text>
           <v-card-actions>
-            <v-btn v-if="hexaco" text color="deep-purple accent-4">مشاهده نتیجه</v-btn>
-            <v-btn v-else text color="deep-purple accent-4">انجام تست</v-btn>
+            <v-btn v-if="hexaco" to="result/hexaco" text color="deep-purple accent-4">مشاهده نتیجه</v-btn>
+            <v-btn v-else to="/hexaco-test" text color="deep-purple accent-4">انجام تست</v-btn>
           </v-card-actions>
         </v-card>
       </div>
@@ -102,8 +102,13 @@
           </v-list-item>
           <v-card-text>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</v-card-text>
           <v-card-actions>
-            <v-btn v-if="chinese" text color="deep-purple accent-4">مشاهده نتیجه</v-btn>
-            <v-btn v-else text color="deep-purple accent-4">انجام تست</v-btn>
+            <v-btn
+              v-if="chinese"
+              to="/result/chinese"
+              text
+              color="deep-purple accent-4"
+            >مشاهده نتیجه</v-btn>
+            <v-btn v-else to="/chinese-test" text color="deep-purple accent-4">انجام تست</v-btn>
           </v-card-actions>
         </v-card>
       </div>
