@@ -196,6 +196,7 @@ export default Vue.extend({
   async mounted() {
     let loader = this.$loader.show('.loadingWrapper')
     let { data } = await this.$service.user.get()
+    data.personality_tests = data.personality_tests || []
     this.user = data
     loader.hide()
   },
