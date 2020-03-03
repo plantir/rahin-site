@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",
-    "start": "nuxt=ts start",
+    "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
     "release": "git push origin develop && git push origin master && git push dist develop && git push dist master",
     "test": "jest"
