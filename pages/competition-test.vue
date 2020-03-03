@@ -174,6 +174,9 @@ header {
     }
   }
 }
+.result {
+  padding: 10px 40px;
+}
 </style>
 <template>
   <div id="free-test">
@@ -213,11 +216,11 @@ header {
       </svg>
       <div class="shadow"></div>
     </section>
-    <div class="progress-wrapper">
+    <div v-if="!result" class="progress-wrapper">
       <strong class="percentage">{{ Math.ceil(percentage) | persianDigit }}٪</strong>
       <v-progress-linear class="progress-bar" v-model="percentage" height="5" reactive></v-progress-linear>
     </div>
-    <div class="quiz-chunk">
+    <div v-if="!result" class="quiz-chunk">
       <div class="questions">
         <v-btn @click="previousPage" color="grey" class="back" text>
           <span>سوال قبلی</span>
@@ -262,15 +265,30 @@ header {
         <v-icon>la-arrow-left</v-icon>
       </v-btn>-->
     </div>
+    <v-container v-if="result">
+      <v-layout row wrap>
+        <v-flex xs3></v-flex>
+        <v-flex xs6>
+          <v-card>
+            <div class="result">
+              <CopetitionResult :data="result.answer" />
+            </div>
+          </v-card>
+        </v-flex>
+        <v-flex xs4></v-flex>
+      </v-layout>
+    </v-container>
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
+import CopetitionResult from '@/components/personality_test/competition_result.vue'
 export default Vue.extend({
+  components: { CopetitionResult },
   data() {
     return {
       percentage: 0,
-      page: 80,
+      page: 1,
       perPage: 1,
       result: <any>null,
       allQuestions: [
