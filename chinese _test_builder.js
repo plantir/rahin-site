@@ -64,17 +64,17 @@ let obj = arr.map((val, i) => {
   } else if (i < 18) {
     type = 'C'
   } else if (i < 24) {
-    type = 'D'
+    type = 'X'
   } else if (i < 30) {
-    type = 'E'
-  } else if (i < 36) {
-    type = 'F'
-  } else if (i < 42) {
-    type = 'G'
-  } else if (i < 48) {
-    type = 'H'
-  } else {
     type = 'I'
+  } else if (i < 36) {
+    type = 'O'
+  } else if (i < 42) {
+    type = 'S'
+  } else if (i < 48) {
+    type = 'E'
+  } else {
+    type = 'V'
   }
   return {
     id: i + 1,

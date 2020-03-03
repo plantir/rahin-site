@@ -379,209 +379,203 @@ export default Vue.extend({
           id: 19,
           title: 'اجرای رقص یا اپرای سنتی چینی برای دیگران',
           answer: null,
-          type: 'D'
+          type: 'X'
         },
         {
           id: 20,
           title: 'تبدیل شدن به یک چهره عمومی (مردمی)',
           answer: null,
-          type: 'D'
+          type: 'X'
         },
         {
           id: 21,
           title: 'رئیس تشریفات یا محری یک شو یا برنامه تلوزیونی بودن',
           answer: null,
-          type: 'D'
+          type: 'X'
         },
         {
           id: 22,
           title: 'لباس پوشیدن بر خلاف عرف جامعه',
           answer: null,
-          type: 'D'
+          type: 'X'
         },
         {
           id: 23,
           title: 'استفاده از عکس و تصویر خود برای تبلیغ یک محصول یا شرکت',
           answer: null,
-          type: 'D'
+          type: 'X'
         },
         {
           id: 24,
           title: 'حضور در یک رویداد به عنوان اعطاکننده جایزه',
           answer: null,
-          type: 'D'
+          type: 'X'
         },
         {
           id: 25,
           title: 'کشف علل یک پدیده یا یک حادثه (تصادف)',
           answer: null,
-          type: 'E'
+          type: 'I'
         },
         {
           id: 26,
           title: 'تایید یک نظریه علمی با عمل',
           answer: null,
-          type: 'E'
+          type: 'I'
         },
         {
           id: 27,
           title: 'تفکر در باب اصول نحوه تدوین یا تغییر چیزها',
           answer: null,
-          type: 'E'
+          type: 'I'
         },
         {
           id: 28,
           title:
             'آگاهی از نظریه‌های علمی متفاوت از طریق مطالعه کتاب یا سخنرانی',
           answer: null,
-          type: 'E'
+          type: 'I'
         },
         {
           id: 29,
           title:
             'مطالعه عمقی یک نظریه معین از طریق مجموعه‌ای از منابع یا داده‌ها',
           answer: null,
-          type: 'E'
+          type: 'I'
         },
         {
           id: 30,
           title: 'به کارگیری علم برای حل مسائل عملی',
           answer: null,
-          type: 'E'
+          type: 'I'
         },
-        { id: 31, title: 'حفظ یک شبکه کامپیوتری', answer: null, type: 'F' },
+        { id: 31, title: 'حفظ یک شبکه کامپیوتری', answer: null, type: 'O' },
         {
           id: 32,
           title: 'شکل‌دهی فلز یا پلاستیک با ابزارها',
           answer: null,
-          type: 'F'
+          type: 'O'
         },
         {
           id: 33,
           title: 'تعمیرات پوشاک یا تجهیزات الکترونیکی',
           answer: null,
-          type: 'F'
+          type: 'O'
         },
         {
           id: 34,
           title: 'راه‌اندازی ماشین‌آلات و دستگاه‌ها',
           answer: null,
-          type: 'F'
+          type: 'O'
         },
         {
           id: 35,
           title: 'مونتاژ ابزارها یا وسایل اندازه‌گیری دقیق',
           answer: null,
-          type: 'F'
+          type: 'O'
         },
         {
           id: 36,
           title:
             'تعمیر کامپیوتر یا دیگر تجهیزات به منظور ارتقاء سطح کارآمدی آنها',
           answer: null,
-          type: 'F'
+          type: 'O'
         },
         {
           id: 37,
           title: 'صحبت با دیگران برای کمک به شاد شدن آنها',
           answer: null,
-          type: 'G'
+          type: 'S'
         },
         {
           id: 38,
           title: 'کمک به درس‌های بچه‌های همسایه',
           answer: null,
-          type: 'G'
+          type: 'S'
         },
         {
           id: 39,
           title: 'مراقبت از افراد ضعیف، بیمار، یا تنها',
           answer: null,
-          type: 'G'
+          type: 'S'
         },
-        { id: 40, title: 'کار برای یک خیریه', answer: null, type: 'G' },
+        { id: 40, title: 'کار برای یک خیریه', answer: null, type: 'S' },
         {
           id: 41,
           title: 'همراهی کردن با سالخورده‌های همسایه',
           answer: null,
-          type: 'G'
+          type: 'S'
         },
         {
           id: 42,
           title:
             'تشیوق همکاران زمانی که احساس سرخوردگی می‌کنند یا با مشکلاتی مواجه می‌شوند',
           answer: null,
-          type: 'G'
+          type: 'S'
         },
         {
           id: 43,
           title: 'برنامه‌ریزی برای تعیین مسیر رشد یک تیم یا شرکت',
           answer: null,
-          type: 'H'
+          type: 'E'
         },
         {
           id: 44,
           title: 'پیاده‌سازی تحلیل سرمایه‌گذاری برای یک شرکت',
           answer: null,
-          type: 'H'
+          type: 'E'
         },
         {
           id: 45,
           title: 'کمک به بازاریابی فعالیت‌های اجتماعی',
           answer: null,
-          type: 'H'
+          type: 'E'
         },
         {
           id: 46,
           title: 'تخصیص منابع انسانی، مادی، یا مالی یک سازمان',
           answer: null,
-          type: 'H'
+          type: 'E'
         },
         {
           id: 47,
           title: 'ملاقات با مجریان یا رهبران مهم',
           answer: null,
-          type: 'H'
+          type: 'E'
         },
         {
           id: 48,
           title: ' توجه به حراجی‌های شرکت‌های فهرست‌شده',
           answer: null,
-          type: 'H'
+          type: 'E'
         },
         {
           id: 49,
           title:
             'انجام ورزش‌های متهورانه مثل اسکیت با کفش بلبرینگ‌دار یا حرکات محیرالعقول با دوچرخه',
           answer: null,
-          type: 'I'
+          type: 'V'
         },
-        { id: 50, title: 'کشف مناطق غیرقابل‌سکونت', answer: null, type: 'I' },
+        { id: 50, title: 'کشف مناطق غیرقابل‌سکونت', answer: null, type: 'V' },
         {
           id: 51,
           title: 'بالا رفتن از یک قله خطرناک',
           answer: null,
-          type: 'I'
+          type: 'V'
         },
         {
           id: 52,
           title: 'مشارکت در عملیات نجات مخاطره‌آمیز مثل اطفاء حریق',
           answer: null,
-          type: 'I'
+          type: 'V'
         },
         {
           id: 53,
           title: 'تبدیل شدن به راننده مسابقه حرفه‌ای',
           answer: null,
-          type: 'I'
+          type: 'V'
         },
-        {
-          id: 54,
-          title: 'انجام تجسس‌های جنایی',
-          answer: null,
-          type: 'I',
-          reverse: true
-        }
+        { id: 54, title: 'انجام تجسس‌های جنایی', answer: null, type: 'V' }
       ]
     }
   },

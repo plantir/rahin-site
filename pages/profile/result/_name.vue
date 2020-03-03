@@ -16,10 +16,14 @@
 import Vue from 'vue'
 import GardnerResult from '@/components/personality_test/gardner_result.vue'
 import HexacoResult from '@/components/personality_test/hexaco_result.vue'
+import ChineseResult from '@/components/personality_test/chinese_result.vue'
+import CompetitionResult from '@/components/personality_test/competition_result.vue'
 export default Vue.extend({
   components: {
     GardnerResult,
-    HexacoResult
+    HexacoResult,
+    ChineseResult,
+    CompetitionResult
   },
   props: {
     user: {
@@ -28,18 +32,25 @@ export default Vue.extend({
   },
   computed: {
     answer() {
+      let name = (<any>this).$route.params.name
       let test = this.user.personality_tests.find(
-        item => item.test_name == this.$route.params.name
+        item => item.test_name == name
       )
       return test.answer
     },
     componentId() {
-      switch (this.$route.params.name) {
+      switch ((<any>this).$route.params.name) {
         case 'gardner':
           return 'GardnerResult'
           break
         case 'hexaco':
           return 'HexacoResult'
+          break
+        case 'chinese':
+          return 'ChineseResult'
+          break
+        case 'competition':
+          return 'CompetitionResult'
           break
       }
     }

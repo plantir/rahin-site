@@ -373,397 +373,457 @@ export default Vue.extend({
           title:
             'اگر من از یک نمایشگاه هنری دیدن کنم، به صورت کلی حوصله ام سر می رود.',
           answer: null,
-          type: 'honestyHumility'
+          type: 'opennessToRxperience',
+          reverse: true
         },
         {
           id: 2,
           title:
             'از قبل برنامه ریزی می کنم و چیزها را سازماندهی می کنم تا در آخرین لحظه به دست و پا زدن نیفتم.',
           answer: null,
-          type: 'emotionality'
+          type: 'conscientiousness',
+          reverse: false
         },
         {
           id: 3,
           title:
             'خیلی به ندرت از کسی کینه به دل می گیرم، حتی در مورد کسانی که به من خیلی بد کرده اند.',
           answer: null,
-          type: 'extraversion'
+          type: 'agreeableness',
+          reverse: false
         },
         {
           id: 4,
           title: 'براساس منطق و دلیل به صورت کلی از خودم راضی هستم.',
           answer: null,
-          type: 'agreeableness'
+          type: 'extraversion',
+          reverse: false
         },
         {
           id: 5,
           title:
             'اگر مجبور به سفر در شرایط بد آب و هوایی بشوم، دچار بیم و هراس می شوم.',
           answer: null,
-          type: 'conscientiousness'
+          type: 'emotionality',
+          reverse: false
         },
         {
           id: 6,
           title:
             'برای ترفیع گرفتن یا جلو افتادن در کارم چاپلوسی نمی کنم، حتی اگر فکر کنم که تملق و چاپلوسی در آن شرایط موثر است.',
           answer: null,
-          type: 'opennessToRxperience'
+          type: 'honestyHumility',
+          reverse: false
         },
         {
           id: 7,
           title:
             'علاقه مند به آموختن در مورد تاریخ و مسایل سیاسی کشورهای دیگر هستم.',
           answer: null,
-          type: 'honestyHumility'
+          type: 'opennessToRxperience',
+          reverse: false
         },
         {
           id: 8,
           title:
             'وقتی روی دست یابی به هدفی کار می کنم، اغلب خیلی سخت تلاش می کنم.',
           answer: null,
-          type: 'emotionality'
+          type: 'conscientiousness',
+          reverse: false
         },
         {
           id: 9,
           title:
             'گاهی وقت ها مردم به من می گویند که خیلی از دیگران ایراد می گیرم.',
           answer: null,
-          type: 'extraversion'
+          type: 'agreeableness',
+          reverse: false
         },
         {
           id: 10,
           title: 'در جلسات گروهی به ندرت نظر خودم را بیان می کنم.',
           answer: null,
-          type: 'agreeableness'
+          type: 'extraversion',
+          reverse: true
         },
         {
           id: 11,
           title: 'گاهی وقت ها نمی توانم جلوی نگرانیم برای مسایل کوچک را بگیرم.',
           answer: null,
-          type: 'conscientiousness'
+          type: 'emotionality',
+          reverse: false
         },
         {
           id: 12,
           title:
             'اگر بدانم که احتمالا هیچ وقت گیر نمی افتم، ممکن است بخواهم یک میلیون دلار یا یورو بدزدم.',
           answer: null,
-          type: 'opennessToRxperience'
+          type: 'honestyHumility',
+          reverse: true
         },
         {
           id: 13,
           title:
             'اگر بتوانم یک اثر هنری مثل یک رمان داستانی یا یک آهنگ یا یک نقاشی خلق کنم، از آن کار لذت خواهم برد.',
           answer: null,
-          type: 'honestyHumility'
+          type: 'opennessToRxperience',
+          reverse: false
         },
         {
           id: 14,
           title:
             'وقتی روی چیزی کار می کنم، خیلی به جزییات و مسایل ریز دقت نمی کنم.',
           answer: null,
-          type: 'emotionality'
+          type: 'conscientiousness',
+          reverse: true
         },
         {
           id: 15,
           title: 'گاهی وقت ها مردم به من می گویند که خیلی یکدنده هستم.',
           answer: null,
-          type: 'extraversion'
+          type: 'agreeableness',
+          reverse: true
         },
         {
           id: 16,
           title:
             'من کارهایی را که همراه با تعاملات اجتماعی باشد را به کارهایی که تنهایی باید انجام داد، ترجیح می دهم.',
           answer: null,
-          type: 'agreeableness'
+          type: 'extraversion',
+          reverse: false
         },
         {
           id: 17,
           title:
             'هرگاه از تجربه دردناکی رنج ببرم به کسی احتیاج دارم که به من احساس آرامش بدهد.',
           answer: null,
-          type: 'conscientiousness'
+          type: 'emotionality',
+          reverse: false
         },
         {
           id: 18,
           title: 'داشتن یک عالمه پول برای من اهمیت خاصی ندارد.',
           answer: null,
-          type: 'opennessToRxperience'
+          type: 'honestyHumility',
+          reverse: false
         },
         {
           id: 19,
           title: 'به نظرم توجه به افکار افراطی وقت تلف کردن است.',
           answer: null,
-          type: 'honestyHumility'
+          type: 'opennessToRxperience',
+          reverse: true
         },
         {
           id: 20,
           title:
             'صمیم های من بیشتر نتیجه احساسی است که در آن لحظه دارم، شکل می گیرند و نه براساس فکر کردن دقیق.',
           answer: null,
-          type: 'emotionality'
+          type: 'conscientiousness',
+          reverse: true
         },
         {
           id: 21,
           title: 'دیگران فکر می کنند، من آدمی هستم که زود جوش می آورد.',
           answer: null,
-          type: 'extraversion'
+          type: 'agreeableness',
+          reverse: true
         },
         {
           id: 22,
           title: 'اغلب روزها احساس سرزندگی و خوش بینی می کنم.',
           answer: null,
-          type: 'agreeableness'
+          type: 'extraversion',
+          reverse: false
         },
         {
           id: 23,
           title: 'وقتی دیگرانی را در حال گریه می بینم، من هم گریه ام می گیرد.',
           answer: null,
-          type: 'conscientiousness'
+          type: 'emotionality',
+          reverse: false
         },
         {
           id: 24,
           title: 'فکر می کنم نسبت به متوسط مردم، از احترام بیشتری برخوردارم.',
           answer: null,
-          type: 'opennessToRxperience'
+          type: 'honestyHumility',
+          reverse: true
         },
         {
           id: 25,
           title:
             'اگر فرصت داشته باشیم، در یک کنسرت موسیقی سنتی و کلاسیک شرکت خواهم کرد.',
           answer: null,
-          type: 'honestyHumility'
+          type: 'opennessToRxperience',
+          reverse: false
         },
         {
           id: 26,
           title:
             'موقع کار، گاهی در کنار آمدن با بی برنامگی و بی نظمی مشکل دارم.',
           answer: null,
-          type: 'emotionality'
+          type: 'conscientiousness',
+          reverse: true
         },
         {
           id: 27,
           title:
             'رویکرد من نسبت به افرادی که به من بدی کرده اند این است که «ببخش و فراموش کن».',
           answer: null,
-          type: 'extraversion'
+          type: 'agreeableness',
+          reverse: false
         },
         {
           id: 28,
           title: 'احساس می کنم آدم محبوبی نیستم.',
           answer: null,
-          type: 'agreeableness'
+          type: 'extraversion',
+          reverse: true
         },
         {
           id: 29,
           title:
             'وقتی پای خطرهای جسمانی به میان می آید، خیلی دچار هراس می شوم.',
           answer: null,
-          type: 'conscientiousness'
+          type: 'emotionality',
+          reverse: false
         },
         {
           id: 30,
           title:
             'اگر کارم گیر کسی باشد حتی به بی‌مزه‌ترین جوک هایش هم می خندم.',
           answer: null,
-          type: 'opennessToRxperience'
+          type: 'honestyHumility',
+          reverse: true
         },
         {
           id: 31,
           title:
             'هیچ وقت از گشتن به دنبال مطلبی در فرهنگ ها و دانشنامه ها لذت نبرده ام.',
           answer: null,
-          type: 'honestyHumility'
+          type: 'opennessToRxperience',
+          reverse: true
         },
         {
           id: 32,
           title:
             'من فقط حداقل حجم کاری را که برای گذران امور لازم است، انجام می دهم.',
           answer: null,
-          type: 'emotionality'
+          type: 'conscientiousness',
+          reverse: true
         },
         {
           id: 33,
           title: 'در قضاوت هایم در مورد مردم، مایل به آسان گیری و مدارا هستم.',
           answer: null,
-          type: 'extraversion'
+          type: 'agreeableness',
+          reverse: false
         },
         {
           id: 34,
           title:
             'در موقعیت های اجتماعی، معمولا اولین کسی هستم که پا پیش می گذارد و اولین حرکت را انجام می دهد.',
           answer: null,
-          type: 'agreeableness'
+          type: 'extraversion',
+          reverse: false
         },
         {
           id: 35,
           title: 'من نسبت به اغلب مردم کمتر نگران هستم.',
           answer: null,
-          type: 'conscientiousness'
+          type: 'emotionality',
+          reverse: true
         },
         {
           id: 36,
           title: 'هیچ وقت رشوه قبول نمی کنم حتی اگر خیلی زیاد باشد.',
           answer: null,
-          type: 'opennessToRxperience'
+          type: 'honestyHumility',
+          reverse: false
         },
         {
           id: 37,
           title:
             'مردم اغلبه به من می گویند که من تصویر سازی و تخیل قوی ای دارم.',
           answer: null,
-          type: 'honestyHumility'
+          type: 'opennessToRxperience',
+          reverse: false
         },
         {
           id: 38,
           title:
             'من سعی می کنم همیشه در کارم دقیق باشم، حتی وقتی که تحت فشار زمانی هستم.',
           answer: null,
-          type: 'emotionality'
+          type: 'conscientiousness',
+          reverse: false
         },
         {
           id: 39,
           title:
             'من بیشتر اوقات وقتی دیگران با نظر من مخالفت می کنند در مورد نظرم انعطاف پذیر هستم.',
           answer: null,
-          type: 'extraversion'
+          type: 'agreeableness',
+          reverse: false
         },
         {
           id: 40,
           title:
             'اولین کاری که در موقعیت های جدید انجام می دهم دوست شدن با افراد است.',
           answer: null,
-          type: 'agreeableness'
+          type: 'extraversion',
+          reverse: false
         },
         {
           id: 41,
           title:
             'بدون نیاز به حمایت عاطفی دیگران، می توانم از عهده موقعیت های سخت بر بیایم.',
           answer: null,
-          type: 'conscientiousness'
+          type: 'emotionality',
+          reverse: true
         },
         {
           id: 42,
           title:
             'اگر ممکن باشد، از داشتن اجناس لوکس گران قیمت خیلی لذت می برم.',
           answer: null,
-          type: 'opennessToRxperience'
+          type: 'honestyHumility',
+          reverse: true
         },
         {
           id: 43,
           title: 'از افرادی که دیدگاه های غیر معمول دارند خوشم می آید.',
           answer: null,
-          type: 'honestyHumility'
+          type: 'opennessToRxperience',
+          reverse: false
         },
         {
           id: 44,
           title: 'من خیلی اشتباه می کنم چون قبل از عمل، فکر نمی کنم.',
           answer: null,
-          type: 'emotionality'
+          type: 'conscientiousness',
+          reverse: true
         },
         {
           id: 45,
           title: 'اغلب مردم سریعتر از من عصبانی می شوند.',
           answer: null,
-          type: 'extraversion'
+          type: 'agreeableness',
+          reverse: false
         },
         {
           id: 46,
           title: 'اغلب مردم سرحال تر و پویا تر از حالت معمول من هستند.',
           answer: null,
-          type: 'agreeableness'
+          type: 'extraversion',
+          reverse: true
         },
         {
           id: 47,
           title:
             'وقتی افراد نزدیک به من برای مدت طولانی از من دور می شوند، سخت احساساتی می شوم.',
           answer: null,
-          type: 'conscientiousness'
+          type: 'emotionality',
+          reverse: false
         },
         {
           id: 48,
           title:
             'می خواهم دیگران بدانند که من فردی مهم و و صاحب جایگاه و شان هستم.',
           answer: null,
-          type: 'opennessToRxperience'
+          type: 'honestyHumility',
+          reverse: true
         },
         {
           id: 49,
           title: 'خودم را جزیی از گروه افراد هنرمند و خلاق نمی دانم.',
           answer: null,
-          type: 'honestyHumility'
+          type: 'opennessToRxperience',
+          reverse: true
         },
         {
           id: 50,
           title: 'دیگران اغلب به من «کمالگرا» می گویند.',
           answer: null,
-          type: 'emotionality'
+          type: 'conscientiousness',
+          reverse: false
         },
         {
           id: 51,
           title:
             'حتی وقتی دیگران خیلی اشتباه می کنند، به ندرت چیزی منفی به زبان می آورم.',
           answer: null,
-          type: 'extraversion'
+          type: 'agreeableness',
+          reverse: false
         },
         {
           id: 52,
           title: 'گاهی وقت ها احساس بی ارزشی می کنم.',
           answer: null,
-          type: 'agreeableness'
+          type: 'extraversion',
+          reverse: true
         },
         {
           id: 53,
           title: 'حتی در شرایط اضطراری، احساس وحشت زدگی نمی کنم.',
           answer: null,
-          type: 'conscientiousness'
+          type: 'emotionality',
+          reverse: true
         },
         {
           id: 54,
           title:
             'فقط برای این که کسی کاری برایم انجام بدهد، وانمود نمی کنم که از او خوشم می آید.',
           answer: null,
-          type: 'opennessToRxperience'
+          type: 'honestyHumility',
+          reverse: false
         },
         {
           id: 55,
           title: 'بحث فلسفی به نظرم حوصله سربر است.',
           answer: null,
-          type: 'honestyHumility'
+          type: 'opennessToRxperience',
+          reverse: true
         },
         {
           id: 56,
           title:
             'ترجیح می دهم کاری را که به ذهنم می رسد انجام بدهم تا این که به اجرای یک برنامه از قبل ریخته شده بچسبم.',
           answer: null,
-          type: 'emotionality'
+          type: 'conscientiousness',
+          reverse: true
         },
         {
           id: 57,
           title:
             'وقتی دیگران به من می گویند که اشتباه می کنم، اولین واکنش من جدل کردن با آن ها است.',
           answer: null,
-          type: 'extraversion'
+          type: 'agreeableness',
+          reverse: true
         },
         {
           id: 58,
           title:
             'وقتی در گروهی هستم، اغلب این من هستم که از طرف گروه صحبت می کنم.',
           answer: null,
-          type: 'agreeableness'
+          type: 'extraversion',
+          reverse: false
         },
         {
           id: 59,
           title:
             'حتی در موقعیت هایی که بیشتر مردم احساساتی می شوند، من غیر احساساتی می مانم.',
           answer: null,
-          type: 'conscientiousness'
+          type: 'emotionality',
+          reverse: true
         },
         {
           id: 60,
           title:
             'اگر بدانم که گیر نمی افتم ممکن است که برای جعل پول وسوسه بشوم.',
           answer: null,
-          type: 'opennessToRxperience'
+          type: 'honestyHumility',
+          reverse: false
         }
       ]
     }

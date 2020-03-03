@@ -62,29 +62,63 @@ let arr = [
 ]
 let obj = arr.map((val, i) => {
   let type
+  let reverse = false
   if (i % 6 == 0) {
-    type = 'honestyHumility'
+    type = 'opennessToRxperience'
   }
   if (i % 6 == 1) {
-    type = 'emotionality'
-  }
-  if (i % 6 == 2) {
-    type = 'extraversion'
-  }
-  if (i % 6 == 3) {
-    type = 'agreeableness'
-  }
-  if (i % 6 == 4) {
     type = 'conscientiousness'
   }
+  if (i % 6 == 2) {
+    type = 'agreeableness'
+  }
+  if (i % 6 == 3) {
+    type = 'extraversion'
+  }
+  if (i % 6 == 4) {
+    type = 'emotionality'
+  }
   if (i % 6 == 5) {
-    type = 'opennessToRxperience'
+    type = 'honestyHumility'
+  }
+  let reverse_items = [
+    1,
+    10,
+    12,
+    14,
+    15,
+    19,
+    20,
+    21,
+    24,
+    26,
+    28,
+    30,
+    31,
+    32,
+    35,
+    41,
+    42,
+    44,
+    46,
+    48,
+    49,
+    52,
+    53,
+    55,
+    56,
+    57,
+    59
+  ]
+  if (reverse_items.includes(i + 1)) {
+    reverse = true
   }
   return {
     id: i + 1,
     title: val,
     answer: null,
-    type
+    type,
+    reverse
   }
 })
 console.log(obj)
