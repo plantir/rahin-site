@@ -1,12 +1,12 @@
 <style lang="scss" scoped>
 .under_menu_background {
-  height: 959px;
+  height: calc(100vh - 80px);
   background-image: url(~assets/img/index_background.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   .wrapper {
-    height: 55%;
+    padding-top: 100px;
     display: flex;
     flex-direction: column;
     display: flex;
@@ -14,8 +14,10 @@
     align-items: center;
     .title {
       padding: 0.5rem;
+      margin: 16px 0;
       color: #fff;
       width: 100%;
+      text-align: center;
       @include respond-to(lg) {
         width: 80%;
       }
@@ -23,24 +25,13 @@
         width: 50%;
       }
       h1 {
-        padding-top: 7rem;
         font-size: 18px;
         font-weight: 600;
         @include respond-to(sm) {
           font-size: 25px;
-          padding-right: 3rem;
         }
         @include respond-to(md) {
           font-size: 35px;
-        }
-        @include respond-to(1150) {
-          padding-right: 8rem;
-        }
-        @include respond-to(lg) {
-          padding-right: 10rem;
-        }
-        @include respond-to(xl) {
-          padding-right: 0;
         }
       }
     }
