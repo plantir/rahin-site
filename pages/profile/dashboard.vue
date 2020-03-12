@@ -3,7 +3,7 @@
 <template>
   <section>
     <!-- <img :src="img" alt /> -->
-    <Level :level="level+1" />
+    <Level :level="level" :continue_url="user.next_step_url" />
   </section>
 </template>
 <script lang="ts">
@@ -19,8 +19,12 @@ export default Vue.extend({
     }
   },
   data() {
-    return {
-      level: 5
+    return {}
+  },
+  computed: {
+    level() {
+      let level = this.user.progress_level || 1
+      return level
     }
   }
 })

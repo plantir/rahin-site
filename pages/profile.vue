@@ -135,14 +135,16 @@ section {
             <div class="card mastery">
               <div class="background"></div>
               <div class="title">تکمیل مراحل</div>
-              <div class="content">
-                <v-progress-circular :size="98" :value="value" :width="4" color="light-blue">
-                  <span class="percentage">{{ value | persianDigit}}%</span>
+              <div class="content" v-if="user">
+                <v-progress-circular :size="98" :value="percentage" :width="4" color="light-blue">
+                  <span class="percentage">{{ percentage | persianDigit}}%</span>
                 </v-progress-circular>
                 <div class="wrapper">
-                  <label>مرحله بعدی: انجام تست گاردنر</label>
-                  <nuxt-link to="gardner-test">
-                    تست گاردنر
+                  <label>
+                    <span class="primary--text">مرحله بعدی:</span>
+                  </label>
+                  <nuxt-link :to="user.next_step_url">
+                    {{user.next_step_label}}
                     <v-icon>la-hand-point-right</v-icon>
                   </nuxt-link>
                 </div>
@@ -175,10 +177,15 @@ export default Vue.extend({
           exact: true,
           base: `/profile/`
         },
-
+        {
+          icon: 'la-video',
+          title: 'ویدیوها',
+          to: 'videos',
+          base: `/profile/`
+        },
         {
           icon: 'la-poll',
-          title: 'نتیایج',
+          title: 'نتیایج تست ها',
           to: 'result',
           base: `/profile/`
         },
@@ -189,8 +196,7 @@ export default Vue.extend({
           base: `/profile/`
         }
       ],
-      value: 20,
-      user: null
+      user: <any>null
     }
   },
   async mounted() {
@@ -198,12 +204,20 @@ export default Vue.extend({
     let { data } = await this.$service.user.get()
     data.personality_tests = data.personality_tests || []
     this.user = data
+
     loader.hide()
   },
   methods: {
     onUserChange(user) {
+      debugger
       this.user = user
       this.$store.commit('auth/change_user_info', user)
+    }
+  },
+  computed: {
+    percentage() {
+      let progress_level = (<any>this).user.progress_level - 1
+      return Math.ceil((progress_level / 11) * 100)
     }
   }
 })

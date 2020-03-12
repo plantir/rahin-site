@@ -17,66 +17,77 @@ svg {
       transition: all 0.5s ease-in-out;
     }
   }
+  .level1.check,
   .level1.active,
   .level1:hover {
     .fill_color {
       fill: #ff5001;
     }
   }
+  .level2.check,
   .level2.active,
   .level2:hover {
     .fill_color {
       fill: #ff9000;
     }
   }
+  .level3.check,
   .level3.active,
   .level3:hover {
     .fill_color {
       fill: #f9c500;
     }
   }
+  .level4.check,
   .level4.active,
   .level4:hover {
     .fill_color {
       fill: #8cc901;
     }
   }
+  .level5.check,
   .level5.active,
   .level5:hover {
     .fill_color {
       fill: #00b19d;
     }
   }
+  .level6.check,
   .level6.active,
   .level6:hover {
     .fill_color {
       fill: #017db4;
     }
   }
+  .level7.check,
   .level7.active,
   .level7:hover {
     .fill_color {
       fill: #4f51a6;
     }
   }
+  .level8.check,
   .level8.active,
   .level8:hover {
     .fill_color {
       fill: #7835a6;
     }
   }
+  .level9.check,
   .level9.active,
   .level9:hover {
     .fill_color {
       fill: #bc37a4;
     }
   }
+  .level10.check,
   .level10.active,
   .level10:hover {
     .fill_color {
       fill: #bd365f;
     }
   }
+  .level11.check,
   .level11.active,
   .level11:hover {
     .fill_color {
@@ -103,7 +114,7 @@ svg {
         <g
           @click="itemClick(1)"
           class="level1"
-          :class="{active:level>1}"
+          :class="{active:level == 1,check:level > 1}"
           id="Level_1"
           transform="translate(896.41 554.17) rotate(-93)"
         >
@@ -192,7 +203,7 @@ svg {
         <g
           class="level2"
           @click="itemClick(2)"
-          :class="{active:level>2}"
+          :class="{active:level == 2,check:level > 2}"
           transform="matrix(-0.755, -0.656, 0.656, -0.755, 967.59, 469.398)"
         >
           <g
@@ -277,7 +288,7 @@ svg {
         <g
           class="level3"
           @click="itemClick(3)"
-          :class="{active:level > 3 }"
+          :class="{active:level == 3,check:level > 3 }"
           transform="translate(958.785 355.438) rotate(175)"
         >
           <g
@@ -362,7 +373,7 @@ svg {
         <g
           class="level4"
           @click="itemClick(4)"
-          :class="{active:level > 4 }"
+          :class="{active:level == 4,check:level > 4 }"
           transform="matrix(-0.616, 0.788, -0.788, -0.616, 868.728, 282.221)"
         >
           <g
@@ -450,7 +461,7 @@ svg {
         <g
           class="level5"
           @click="itemClick(5)"
-          :class="{active:level > 5 }"
+          :class="{active:level == 5,check:level > 5 }"
           transform="translate(756.236 299.788) rotate(82)"
         >
           <g
@@ -538,7 +549,7 @@ svg {
         <g
           class="level6"
           @click="itemClick(6)"
-          :class="{active:level > 6 }"
+          :class="{active:level == 6,check:level > 6 }"
           transform="translate(570.006 756.967) rotate(-99)"
         >
           <g
@@ -624,7 +635,7 @@ svg {
         <g
           class="level7"
           @click="itemClick(7)"
-          :class="{active:level > 7 }"
+          :class="{active:level == 7,check:level > 7 }"
           transform="matrix(0.602, -0.799, 0.799, 0.602, 457.577, 774.305)"
         >
           <g
@@ -700,16 +711,16 @@ svg {
             </text>
           </g>
           <text transform="matrix(0.616, 0.788, -0.788, 0.616, 118.374, 23.852)">
-            <tspan x="151" y="32">افراد ناراضی</tspan>
+            <tspan x="140" y="32">از دیدگاه</tspan>
           </text>
           <text transform="matrix(0.616, 0.788, -0.788, 0.616, 118.374, 23.852)">
-            <tspan x="137" y="66">و دلایل</tspan>
+            <tspan x="144" y="66">کارشناس</tspan>
           </text>
         </g>
         <g
           class="level8"
           @click="itemClick(8)"
-          :class="{active:level > 8 }"
+          :class="{active:level == 8,check:level > 8 }"
           transform="translate(367.532 706.847) rotate(-6)"
         >
           <g
@@ -784,20 +795,17 @@ svg {
               <tspan x="44" y="51">۸</tspan>
             </text>
           </g>
-          <text transform="translate(52.867 74.208) rotate(5)">
-            <tspan x="140" y="32">افراد موفق</tspan>
+          <text transform="translate(62 100) rotate(5)">
+            <tspan x="140" y="32">افراد ناراضی</tspan>
           </text>
-          <text transform="translate(52.867 74.208) rotate(5)">
-            <tspan x="96" y="66">و</tspan>
-          </text>
-          <text transform="translate(52.867 74.208) rotate(5)">
-            <tspan x="146" y="100">سختی ها</tspan>
+          <text transform="translate(52 65) rotate(5)">
+            <tspan x="146" y="100">و دلایل</tspan>
           </text>
         </g>
         <g
           class="level9"
           @click="itemClick(9)"
-          :class="{active:level > 9 }"
+          :class="{active:level == 9,check:level > 9 }"
           transform="matrix(0.755, 0.656, -0.656, 0.755, 355.924, 591.691)"
         >
           <g
@@ -872,20 +880,17 @@ svg {
               <tspan x="42" y="51">۹</tspan>
             </text>
           </g>
-          <text transform="translate(36.471 141.119) rotate(-42)">
-            <tspan x="146" y="32">سبک زندگی</tspan>
+          <text transform="translate(36 141) rotate(-42)">
+            <tspan x="146" y="37">افراد موفق</tspan>
           </text>
-          <text transform="translate(36.471 141.119) rotate(-42)">
-            <tspan x="132" y="66">متناسب</tspan>
-          </text>
-          <text transform="translate(36.471 141.119) rotate(-42)">
-            <tspan x="117" y="100">بارشته</tspan>
+          <text transform="translate(36 141) rotate(-42)">
+            <tspan x="117" y="70">و سختی ها</tspan>
           </text>
         </g>
         <g
           class="level10"
           @click="itemClick(10)"
-          :class="{active:level > 10 }"
+          :class="{active:level == 10,check:level > 10 }"
           transform="translate(427 505.528) rotate(87)"
         >
           <g
@@ -964,16 +969,25 @@ svg {
             </text>
           </g>
           <text transform="matrix(0.035, -0.999, 0.999, 0.035, 85.829, 207.911)">
+            <tspan x="146" y="22">سبک زندگی</tspan>
+          </text>
+          <text transform="matrix(0.035, -0.999, 0.999, 0.035, 85.829, 207.911)">
+            <tspan x="132" y="56">متناسب</tspan>
+          </text>
+          <text transform="matrix(0.035, -0.999, 0.999, 0.035, 85.829, 207.911)">
+            <tspan x="117" y="90">بارشته</tspan>
+          </text>
+          <!-- <text transform="matrix(0.035, -0.999, 0.999, 0.035, 85.829, 207.911)">
             <tspan x="135" y="32">از دیدگاه</tspan>
           </text>
           <text transform="matrix(0.035, -0.999, 0.999, 0.035, 85.829, 207.911)">
             <tspan x="132" y="66">کارشناس</tspan>
-          </text>
+          </text>-->
         </g>
         <g
           class="level11"
           @click="itemClick(11)"
-          :class="{active:level > 11 }"
+          :class="{active:level == 11,check:level > 11 }"
           transform="translate(540.592 497.909) rotate(133)"
         >
           <g
@@ -1062,10 +1076,47 @@ svg {
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  props: { level: {} },
+  props: {
+    level: {
+      type: Number
+    },
+    continue_url: {
+      type: String
+    }
+  },
   methods: {
     itemClick(level) {
-      console.log(level)
+      if (level > this.level) {
+        return this.$dialog
+          .warning()
+          .message('شما اجازه ندارید مرحله های بعدی را زودتر انجام دهید')
+          .alert()
+      }
+      if (level == this.level) {
+        return this.$router.push(this.continue_url)
+      }
+      let result_url = '/profile/result'
+      let video_url = '/profile/videos'
+      switch (level) {
+        case 1:
+          this.$router.push(`${result_url}/gardner`)
+          break
+        case 2:
+          this.$router.push(`${result_url}/hexaco`)
+          break
+        case 3:
+          this.$router.push(`${result_url}/chinese`)
+          break
+        case 4:
+          this.$router.push(`${result_url}/competition`)
+          break
+        case 5:
+          this.$router.push(`${video_url}/5`)
+          break
+
+        default:
+          break
+      }
     }
   }
 })

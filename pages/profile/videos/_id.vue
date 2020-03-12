@@ -1,0 +1,110 @@
+<style lang="scss" >
+#videoLevel {
+  .video-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .expansion-wrapper {
+    padding: 32px;
+  }
+  .v-expansion-panel-content {
+    &__wrap {
+      padding: 16px 24px;
+    }
+  }
+}
+</style>
+<template>
+  <section id="videoLevel">
+    <div class="d-flex align-center">
+      <h3 class="title primary--text">{{data.label}}</h3>
+      <v-spacer></v-spacer>
+      <v-btn to="/profile/videos" color="primary" text>
+        <span class="ml-4">بازگشت</span>
+        <v-icon>la-arrow-left</v-icon>
+      </v-btn>
+    </div>
+    <div class="expansion-wrapper">
+      <v-expansion-panels :multiple="true" focusable>
+        <v-expansion-panel v-for="(field,i) in data.fields" :key="i">
+          <v-expansion-panel-header>{{field.name}}</v-expansion-panel-header>
+          <v-expansion-panel-content class="test" pa-4>
+            <template v-for="(video, index) in field.videos">
+              <div :key="index">
+                <v-list-item>
+                  <v-list-item-content>
+                    <div class="video-item">
+                      <div>
+                        <span>{{index+1 | persianDigit}}-</span>
+                        <span>{{video.name}}</span>
+                      </div>
+                      <div>
+                        <v-icon @click="play(field,video)" color="primary">la-play-circle</v-icon>
+                        <span class="subtitle-2" v-if="video.is_seen">دیده شده</span>
+                      </div>
+                    </div>
+                  </v-list-item-content>
+                </v-list-item>
+                <v-divider v-if="index  < field.videos.length - 1"></v-divider>
+              </div>
+            </template>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
+    </div>
+  </section>
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+import videoPlayer from '@/components/video_player/index.vue'
+export default Vue.extend({
+  props: {
+    user: {
+      type: Object as () => any
+    }
+  },
+  data() {
+    return {
+      data: {}
+    }
+  },
+  async mounted() {
+    let { data } = await this.$service.video.get(this.$route.params.id)
+    this.data = data
+  },
+  methods: {
+    onEnd(player) {
+      console.log(player)
+    },
+    async play(field, video) {
+      try {
+        let result = await this.$dialog.show({
+          component: videoPlayer,
+          scope: { video },
+          dialog_wrapper_custom_class: 'viedo-player'
+        })
+        if (result) {
+          let { data } = await this.$service.user.seeVideo({
+            level: this.$route.params.id,
+            field_name: field.name,
+            video_name: video.name
+          })
+          if (this.user.progress_level != data.progress_level) {
+            this.$dialog
+              .success()
+              .message('مرحله با موفقیت تکمیل شد')
+              .alert()
+            this.$emit('change', data)
+          }
+          video.is_seen = true
+        }
+        console.log(result)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
+})
+</script>

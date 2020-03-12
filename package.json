@@ -36,7 +36,8 @@
     "vrwebdesign-nuxt": "^2.x",
     "vue-custom-scrollbar": "^1.1.0",
     "vue-perfect-scrollbar": "^0.2.1",
-    "vue-svg-loader": "^0.15.0"
+    "vue-svg-loader": "^0.15.0",
+    "vue-video-player": "^5.0.2"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.0.0",

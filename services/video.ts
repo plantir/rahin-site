@@ -1,28 +1,25 @@
 import { NuxtAxiosInstance } from 'vrwebdesign-nuxt/modules/nuxt-axios/types'
 import { BaseService } from './helper/BaseService'
 
-export default class UserService extends BaseService<any> {
+export default class VideoService extends BaseService<any> {
   constructor(public $axios: NuxtAxiosInstance) {
     super($axios)
   }
-  update(params): Promise<{ data: any }> {
-    return this.$axios.put('user', params)
+  all(): Promise<{ data: any }> {
+    return this.$axios.get('videos')
   }
-  get(): Promise<{ data: any }> {
-    return this.$axios.get('user')
-  }
-  seeVideo(data): Promise<{ data: any }> {
-    return this.$axios.post('user/seeVideo', data)
+  get(level): Promise<{ data: any }> {
+    return this.$axios.get(`videos/${level}`)
   }
 }
 
 declare module 'vue/types/vue' {
   interface NuxtServiceInstance {
-    user: UserService
+    video: VideoService
   }
 }
 declare module '@nuxt/types' {
   interface NuxtServiceInstance {
-    user: UserService
+    video: VideoService
   }
 }

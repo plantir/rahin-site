@@ -73,12 +73,17 @@ export default {
   css: [
     'vrwebdesign-nuxt/assets/style/main.scss',
     '~assets/style/main.scss',
-    'animate.css/animate.css'
+    'animate.css/animate.css',
+    'video.js/dist/video-js.css'
   ],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/iconLoader.js', '@/plugins/globalComponent.js'],
+  plugins: [
+    '@/plugins/iconLoader.js',
+    '@/plugins/globalComponent.js',
+    { src: '@/plugins/videoPlayer.js', mode: 'client' }
+  ],
   /*
    ** Nuxt.js dev-modules
    */

@@ -1,32 +1,11 @@
-const _ = require('lodash')
-let array = [
-  13,
-  24,
-  10,
-  15,
-  21,
-  14,
-  20,
-  1,
-  19,
-  30,
-  42,
-  48,
-  35,
-  41,
-  59,
-  53,
-  28,
-  46,
-  52,
-  57,
-  26,
-  32,
-  44,
-  56,
-  31,
-  49,
-  55
+let arr = [
+  {
+    title: 'Object Category 1',
+    Key: '1',
+    Disabled: false,
+    Children: []
+  }
 ]
-let new_arr = _.orderBy(array)
-console.log(new_arr)
+
+let stringify = JSON.stringify(arr)
+console.log(JSON.parse(stringify))
