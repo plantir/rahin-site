@@ -366,7 +366,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      page: 1,
+      page: 15,
       perPage: 5,
       result: <any>null,
       allQuestions: [

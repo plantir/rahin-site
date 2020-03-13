@@ -204,12 +204,10 @@ export default Vue.extend({
     let { data } = await this.$service.user.get()
     data.personality_tests = data.personality_tests || []
     this.user = data
-
     loader.hide()
   },
   methods: {
     onUserChange(user) {
-      debugger
       this.user = user
       this.$store.commit('auth/change_user_info', user)
     }

@@ -364,7 +364,7 @@ export default Vue.extend({
   components: { HexacoResult },
   data() {
     return {
-      page: 1,
+      page: 11,
       perPage: 5,
       result: <any>null,
       allQuestions: [
