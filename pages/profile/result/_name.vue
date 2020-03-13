@@ -9,7 +9,7 @@
         <v-icon>la-arrow-left</v-icon>
       </v-btn>
     </div>
-    <component :is="componentId" :data="answer"></component>
+    <component v-if="answer" :is="componentId" :data="answer"></component>
   </div>
 </template>
 <script lang="ts">
@@ -30,14 +30,25 @@ export default Vue.extend({
       type: Object as () => any
     }
   },
+  data() {
+    return {
+      answer: null
+    }
+  },
+  async mounted() {
+    let { data } = await this.$service.user.getTestAnswer(
+      this.$route.params.name
+    )
+    this.answer = data
+  },
   computed: {
-    answer() {
-      let name = (<any>this).$route.params.name
-      let test = this.user.personality_tests.find(
-        item => item.test_name == name
-      )
-      return test.answer
-    },
+    // answer() {
+    //   let name = (<any>this).$route.params.name
+    //   let test = this.user.personality_tests.find(
+    //     item => item.test_name == name
+    //   )
+    //   return test.answer
+    // },
     componentId() {
       switch ((<any>this).$route.params.name) {
         case 'gardner':

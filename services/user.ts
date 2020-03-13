@@ -11,6 +11,9 @@ export default class UserService extends BaseService<any> {
   get(): Promise<{ data: any }> {
     return this.$axios.get('user')
   }
+  getTestAnswer(testName): Promise<{ data: any }> {
+    return this.$axios.get(`user/getTestAnswer/${testName}`)
+  }
   seeVideo(data): Promise<{ data: any }> {
     return this.$axios.post('user/seeVideo', data)
   }
