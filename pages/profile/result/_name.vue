@@ -25,11 +25,6 @@ export default Vue.extend({
     ChineseResult,
     CompetitionResult
   },
-  props: {
-    user: {
-      type: Object as () => any
-    }
-  },
   data() {
     return {
       answer: null
