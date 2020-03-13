@@ -288,7 +288,7 @@ export default Vue.extend({
   data() {
     return {
       percentage: 0,
-      page: 80,
+      page: 1,
       perPage: 1,
       result: <any>null,
       allQuestions: [
