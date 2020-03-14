@@ -126,7 +126,8 @@ export default {
     rtl: true,
     treeShake: true,
     defaultAssets: {
-      icon: false
+      icons: false,
+      font: false
     },
     theme: {
       themes: {

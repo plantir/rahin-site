@@ -101,7 +101,7 @@
         <nuxt-link class="start" to="/free-test">
           <span>شروع</span>
           <span>
-            <v-icon>keyboard_arrow_left</v-icon>
+            <v-icon>la-angle-left</v-icon>
           </span>
         </nuxt-link>
       </div>
