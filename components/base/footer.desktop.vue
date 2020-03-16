@@ -1,7 +1,8 @@
 <style lang="scss" scoped>
 footer {
-  margin-top: 5rem;
+  padding-top: 5rem;
   display: flex;
+  background: #f2f8f8;
   img {
     width: 100%;
     height: 100%;

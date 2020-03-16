@@ -6,11 +6,11 @@ export default class AuthService extends BaseService<any> {
     super($axios)
   }
   register(mobile): Promise<{ data: any }> {
-    return this.$axios.post('auth/register', { mobile })
+    return this.$axios.post('site/auth/register', { mobile })
   }
 
   login({ mobile, password }): Promise<{ data: any }> {
-    return this.$axios.post('auth/login', { mobile, password })
+    return this.$axios.post('site/auth/login', { mobile, password })
   }
 }
 

@@ -31,13 +31,16 @@ export const mutations = {
     state.token = parsed_auth.token
     state.refreshToken = parsed_auth.refreshToken
     $axios.setToken(state.token, 'Bearer')
-    if (state.token) {
+    state.user = localStorage.getItem('userInfo')
+    state.user = state.user ? JSON.parse(state.user) : null
+    if (state.token && !state.user) {
       let { data } = jwtDecode(state.token)
       state.user = data
     }
   },
   change_user_info(state, params) {
     state.user = params
+    localStorage.setItem('userInfo', JSON.stringify(params))
   }
 }
 export const actions = {}

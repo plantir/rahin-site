@@ -152,7 +152,7 @@ section {
             </div>
           </div>
         </v-flex>
-        <v-flex xs7 px-3>
+        <v-flex xs9 px-3>
           <div class="main-content">
             <vr-navbar :items="navigation"></vr-navbar>
             <div class="wrapper loadingWrapper">
@@ -179,7 +179,7 @@ export default Vue.extend({
         },
         {
           icon: 'la-video',
-          title: 'ویدیوها',
+          title: 'فیلم ها',
           to: 'videos',
           base: `/profile/`
         },

@@ -107,7 +107,7 @@
   <div id="contactus">
     <header>
       <div class="scene">
-        <img src="https://static.neris-assets.com/images/team.svg?v=2" />
+        <img src="~assets/svg/team.svg" />
       </div>
       <div class="text">
         <h1>تماس با ما</h1>

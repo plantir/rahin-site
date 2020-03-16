@@ -73,7 +73,7 @@
       &--active {
         .v-icon {
           &::before {
-            content: '';
+            content: '';
           }
         }
       }

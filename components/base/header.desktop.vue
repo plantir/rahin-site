@@ -151,12 +151,20 @@
                 <v-list-item-title>داشبورد</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
+            <v-list-item color="primary" to="/profile/videos">
+              <v-list-item-icon>
+                <v-icon>la-video</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>فیلم ها</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
             <v-list-item color="primary" to="/profile/result">
               <v-list-item-icon>
                 <v-icon>la-poll</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title>نتایج</v-list-item-title>
+                <v-list-item-title>نتایج تست ها</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
             <v-list-item color="primary" to="/profile/info">

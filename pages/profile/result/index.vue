@@ -3,8 +3,12 @@
   display: flex;
   flex-wrap: wrap;
   > div {
-    padding: 16px;
-    flex: 0 0 50%;
+    padding: 8px;
+    // flex: 0 0 50%;
+    width: 50%;
+    @include respond-to(xl) {
+      width: 25%;
+    }
   }
   .v-avatar {
     span,
