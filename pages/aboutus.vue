@@ -51,6 +51,7 @@
           align-items: center;
           justify-content: center;
           transition: padding ease-in-out 0.1s;
+          text-decoration: none;
           &:hover {
             padding-bottom: 8px;
           }
@@ -143,7 +144,7 @@
       <v-layout row wrap>
         <v-flex xs3>
           <div class="image-wrapper">
-            <img src="~assets/img/soreal_2.jpeg" alt />
+            <!-- <img src="~assets/img/soreal_2.jpeg" alt /> -->
           </div>
         </v-flex>
         <v-flex xs6>
@@ -155,7 +156,7 @@
         </v-flex>
         <v-flex xs3>
           <div class="image-wrapper">
-            <img src="~assets/img/soreal_4.jpeg" alt />
+            <!-- <img src="~assets/img/soreal_4.jpeg" alt /> -->
           </div>
         </v-flex>
       </v-layout>

@@ -38,7 +38,7 @@
   <section>
     <div class="item-wrapper">
       <nuxt-link
-        :to="`videos/${item.level}`"
+        :to="`/videos/${item.level}`"
         class="item"
         tag="button"
         :disabled="user.progress_level < item.level"

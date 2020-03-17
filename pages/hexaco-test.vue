@@ -241,44 +241,11 @@ header {
 </style>
 <template>
   <div id="free-test">
-    <header>
-      <h1>تست شخصیت HEXACO</h1>
-      <div class="trademark">انجام این تست کمک میکنه تا بفهمی به چه کارایی علاقه داری</div>
-    </header>
-    <section class="tips">
-      <div class="tip first">
-        <img src="https://static.neris-assets.com/images/test-header-3.svg" />
-        <div class="text">
-          <div class="title">همرو کامل کن</div>
-          <div class="subtitle">سعی کن هیچ پاسخ "بی‌طرفانه‌ای" باقی نگذاری</div>
-        </div>
-      </div>
-      <div class="tip second">
-        <img src="https://static.neris-assets.com/images/test-header-2.svg" />
-        <div class="text">
-          <div class="title">خودت باش</div>
-          <div class="subtitle">صادقانه پاسخ بده حتی اگر از پاسخ خوشت نمیاد</div>
-        </div>
-      </div>
-      <div class="tip third">
-        <img src="https://static.neris-assets.com/images/test-header-1.svg" />
-        <div class="text">
-          <div class="title">سریع و آسون</div>
-          <div class="subtitle">کمتر از 12 دقیقه طول میکشه.</div>
-        </div>
-      </div>
-      <svg viewBox="0 0 600 105" preserveAspectRatio="none" class="shape">
-        <polygon
-          points="600 61.82 476.72 105 351 74.68 157 105 0 55.39 0 -87 600 -87 600 61.82"
-          class="c1"
-        />
-      </svg>
-      <div class="shadow"></div>
-    </section>
-    <div v-if="!result" class="progress-wrapper">
-      <strong class="percentage">{{ Math.ceil(percentage) | persianDigit }}٪</strong>
-      <v-progress-linear class="progress-bar" v-model="percentage" height="5" reactive></v-progress-linear>
-    </div>
+    <testHeader
+      title="تست شخصیت HEXACO"
+      subtitle="انجام این تست کمک میکنه تا بفهمی به چه کارایی علاقه داری"
+      :percentage="percentage"
+    />
     <div v-if="!result" class="quiz-chunk" ref="questions">
       <div class="questions">
         <div v-for="(question, index) in questions" :key="index" class="question">
@@ -360,8 +327,10 @@ header {
 <script lang="ts">
 import Vue from 'vue'
 import HexacoResult from '@/components/personality_test/hexaco_result.vue'
+
+import testHeader from '@/components/personality_test/test_header.vue'
 export default Vue.extend({
-  components: { HexacoResult },
+  components: { HexacoResult, testHeader },
   data() {
     return {
       page: 1,

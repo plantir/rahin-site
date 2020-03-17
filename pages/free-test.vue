@@ -2,108 +2,7 @@
 // #free-test {
 //   background: #fff;
 // }
-header {
-  background-color: #57ae8c;
-  position: relative;
-  padding-top: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fff;
-  h1 {
-    font-size: 4.1em;
-    font-weight: 600;
-  }
-  .trademark {
-    font-size: 1.1em;
-    sup {
-      margin-left: 4px;
-    }
-  }
-}
-.tips {
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding: 70px 15px 15px;
-  padding-bottom: 30px;
-  justify-content: center;
-  .tip {
-    display: -webkit-box;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    width: 450px;
-    margin: 0 15px;
-    padding: 30px 0;
 
-    border-bottom: 6px solid;
-    border-radius: 10px;
-    position: relative;
-    z-index: 4;
-    &.first {
-      background-color: rgba(#f4e3ec, 0.8);
-      border-color: #b8a8b0;
-    }
-    &.second {
-      background-color: rgba(#ddeeee, 0.8);
-      border-color: #b0d6d7;
-    }
-    &.third {
-      background-color: rgba(#eceadb, 0.8);
-      border-color: #eee191;
-    }
-    .text {
-      .title {
-        font-weight: 600;
-        font-size: 1.2em;
-        text-align: center;
-        color: #576071;
-        margin-bottom: 10px;
-      }
-      .subtitle {
-        text-align: center;
-        line-height: 1.5;
-        font-size: 0.9em;
-        color: #7c7e83;
-      }
-    }
-    img {
-      width: 90px;
-      margin-bottom: 25px;
-    }
-  }
-  .shape {
-    display: block;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 2;
-    width: 100%;
-    height: 325px;
-    .c1 {
-      fill: #57ae8c;
-    }
-  }
-}
-.progress-wrapper {
-  background-color: #f5f5f5;
-  padding: 25px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .percentage {
-    color: #9b9faa;
-    font-size: 1.3rem;
-    margin-left: 8px;
-  }
-  .progress-bar {
-    flex: 0 0 60%;
-  }
-}
 .quiz-chunk {
   background: #fff;
   text-align: center;
@@ -114,7 +13,7 @@ header {
     height: 70px;
     border-radius: 60px;
     font-size: 24px;
-    margin: 40px 0;
+    margin: 10px 0 20px;
     .v-icon {
       position: absolute;
       right: 8px;
@@ -135,12 +34,13 @@ header {
   flex-direction: column;
   padding: 15px;
   .question {
-    padding: 35px 0 20px;
+    padding: 0 0 20px;
     width: 100%;
     border-bottom: 1px solid #dcdcdc;
+    min-height: 500px;
     .decision {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       justify-content: space-between;
       margin: 30px 0 15px;
       .question-caption {
@@ -148,9 +48,13 @@ header {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        flex: 1;
+        flex: 0 0 calc(50% - 250px - 15px);
+        font-size: 2rem;
+        font-weight: 600;
+        color: #666;
         img {
-          max-width: 400px;
+          width: 400px;
+          max-width: 100%;
         }
       }
       .options {
@@ -235,44 +139,12 @@ header {
 </style>
 <template>
   <div id="free-test">
-    <header>
-      <h1>تست شخصیت رایگان</h1>
-      <div class="trademark">انجام این تست کمک میکنه تا بفهمی چجور شخصیتی داری</div>
-    </header>
-    <section class="tips">
-      <div class="tip first">
-        <img src="https://static.neris-assets.com/images/test-header-3.svg" />
-        <div class="text">
-          <div class="title">همرو کامل کن</div>
-          <div class="subtitle">سعی کن هیچ پاسخ "بی‌طرفانه‌ای" باقی نگذاری</div>
-        </div>
-      </div>
-      <div class="tip second">
-        <img src="https://static.neris-assets.com/images/test-header-2.svg" />
-        <div class="text">
-          <div class="title">خودت باش</div>
-          <div class="subtitle">صادقانه پاسخ بده حتی اگر از پاسخ خوشت نمیاد</div>
-        </div>
-      </div>
-      <div class="tip third">
-        <img src="https://static.neris-assets.com/images/test-header-1.svg" />
-        <div class="text">
-          <div class="title">سریع و آسون</div>
-          <div class="subtitle">کمتر از 12 دقیقه طول میکشه.</div>
-        </div>
-      </div>
-      <svg viewBox="0 0 600 105" preserveAspectRatio="none" class="shape">
-        <polygon
-          points="600 61.82 476.72 105 351 74.68 157 105 0 55.39 0 -87 600 -87 600 61.82"
-          class="c1"
-        />
-      </svg>
-      <div class="shadow"></div>
-    </section>
-    <div class="progress-wrapper">
-      <strong class="percentage">{{ Math.ceil(percentage) | persianDigit }}٪</strong>
-      <v-progress-linear class="progress-bar" v-model="percentage" height="5" reactive></v-progress-linear>
-    </div>
+    <testHeader
+      title="تست شخصیت رایگان"
+      subtitle="انجام این تست کمک میکنه تا بفهمی چجور شخصیتی داری"
+      :percentage="percentage"
+    />
+
     <div class="quiz-chunk">
       <div class="questions">
         <transition
@@ -361,7 +233,9 @@ header {
 </template>
 <script lang="ts">
 import Vue from 'vue'
+import testHeader from '@/components/personality_test/test_header.vue'
 export default Vue.extend({
+  components: { testHeader },
   data() {
     return {
       percentage: 0,

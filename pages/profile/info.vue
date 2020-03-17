@@ -1,8 +1,7 @@
 <template>
   <section ref="wrapper">
     <v-layout row wrap>
-      <v-flex xs2></v-flex>
-      <v-flex xs8>
+      <v-flex xs10>
         <v-form-generator v-model="model" :formData="formData"></v-form-generator>
         <div>
           <v-btn color="info" @click="save">ذخیره</v-btn>

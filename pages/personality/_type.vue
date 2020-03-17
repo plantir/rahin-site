@@ -282,16 +282,16 @@ article {
             <div class="nav-title">شخصیت ها</div>
             <ul>
               <nuxt-link tag="li" to="type1">
-                <a href="/intp-personality">مبارز و جنگجو</a>
+                <a>مبارز و جنگجو</a>
               </nuxt-link>
               <nuxt-link tag="li" to="type2">
-                <a href="/intp-strengths-and-weaknesses">فعال و پیگیر</a>
+                <a>فعال و پیگیر</a>
               </nuxt-link>
               <nuxt-link tag="li" to="type3">
-                <a href="/intp-relationships-dating">متفکر و طراح</a>
+                <a>متفکر و طراح</a>
               </nuxt-link>
               <nuxt-link tag="li" to="type4">
-                <a href="/intp-friends">آرام و با وقار</a>
+                <a>آرام و با وقار</a>
               </nuxt-link>
             </ul>
           </nav>
@@ -311,6 +311,18 @@ article {
               <img alt="Protagonist personality" :src="type.scene_image" />
             </div>
           </article>
+          <div class="text-center mt-6">
+            <h3
+              class="my-6"
+            >در صورتی که تمایل به ادامه مسیر مشاوره تحصیلی دارید از این طریق اقدام نمایید</h3>
+            <v-btn
+              v-if="user"
+              color="primary"
+              class="white--text"
+              to="/profile/dashboard"
+            >مشاوره تحصیلی</v-btn>
+            <v-btn v-else color="primary" @click="login">مشاوره تحصیلی</v-btn>
+          </div>
         </v-flex>
         <v-flex xs3 px-5>
           <aside class="left-side">
@@ -348,6 +360,8 @@ article {
 </template>
 <script lang="ts">
 import Vue from 'vue'
+import LoginDialog from '@/components/auth/login.vue'
+
 export default Vue.extend({
   data() {
     return {
@@ -483,9 +497,20 @@ export default Vue.extend({
       }
     }
   },
+  methods: {
+    login() {
+      this.$dialog.show({
+        component: LoginDialog,
+        dialog_wrapper_custom_class: 'login-dialog'
+      })
+    }
+  },
   computed: {
     type(): any {
       return this.types[this.$route.params.type]
+    },
+    user() {
+      return this.$store.state.auth.user
     }
   }
 })

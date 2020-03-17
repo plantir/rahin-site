@@ -39,12 +39,13 @@ section {
       min-height: 250px;
       @include box-shadow;
       .profile-wrapper {
-        // clip-path: polygon(56% 0, 95% 25%, 100% 75%, 49% 91%, 0 69%, 10% 26%);
-        // background-color: #e5e6e7;
+        clip-path: polygon(56% 0, 95% 25%, 100% 75%, 49% 91%, 0 69%, 10% 26%);
+        background-color: #e5e6e7;
         width: 200px;
         margin-bottom: -5px;
         img {
-          width: 100%;
+          width: 200px;
+          height: 200px;
         }
       }
       .text {
@@ -80,13 +81,10 @@ section {
       .content {
         width: 100%;
         display: flex;
-        flex-direction: column;
         align-items: center;
-        text-align: center;
-        justify-content: center;
-        padding: 25px 15px 15px;
+        padding: 45px 35px 35px;
         .wrapper {
-          margin-top: 16px;
+          margin-right: 16px;
           display: flex;
           flex-direction: column;
           label {
@@ -123,21 +121,13 @@ section {
     </header>
     <v-container grid-list-xs>
       <v-layout row wrap>
-        <v-flex xs9 px-3>
-          <div class="main-content">
-            <vr-navbar :items="navigation"></vr-navbar>
-            <div class="wrapper loadingWrapper">
-              <nuxt-child v-if="user" @change="onUserChange" :user="user"></nuxt-child>
-            </div>
-          </div>
-        </v-flex>
         <v-flex xs3 px-3>
           <div class="right-side">
             <div class="user-section loadingWrapper" ref="userSection">
               <template v-if="user">
                 <div class="profile-wrapper">
-                  <img v-if="user.gender == 'female'" src="/avatars/female.jpg" />
-                  <img v-else src="/avatars/male.jpg" />
+                  <img v-if="user.gender == 'female'" src="/face/female.svg" />
+                  <img v-else src="/face/male.svg" />
                 </div>
                 <div class="text">سلام {{user.name}}!</div>
               </template>
@@ -159,6 +149,14 @@ section {
                   </nuxt-link>
                 </div>
               </div>
+            </div>
+          </div>
+        </v-flex>
+        <v-flex xs9 px-3>
+          <div class="main-content">
+            <vr-navbar :items="navigation"></vr-navbar>
+            <div class="wrapper loadingWrapper">
+              <nuxt-child v-if="user" @change="onUserChange" :user="user"></nuxt-child>
             </div>
           </div>
         </v-flex>

@@ -108,7 +108,7 @@
       <v-layout row wrap>
         <v-flex xs3>
           <div class="image-wrapper">
-            <img src="~assets/img/soreal_5.jpeg" alt />
+            <!-- <img src="~assets/img/soreal_5.jpeg" alt /> -->
           </div>
         </v-flex>
         <v-flex xs6>
@@ -134,7 +134,7 @@
         </v-flex>
         <v-flex xs3>
           <div class="image-wrapper">
-            <img src="~assets/img/soreal_6.jpeg" alt />
+            <!-- <img src="~assets/img/soreal_6.jpeg" alt /> -->
           </div>
         </v-flex>
       </v-layout>

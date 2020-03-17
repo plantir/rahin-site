@@ -32,7 +32,7 @@
     }
     h5 {
       margin-top: 4px;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 400;
       opacity: 0.8;
       line-height: 16px;
@@ -56,6 +56,18 @@
     .v-input__slot {
       border-radius: 0;
       border-right: 3px solid #0dced6;
+    }
+    .logedin {
+      .v-btn {
+        width: auto;
+        color: #fff !important;
+        &:first-child {
+          background: linear-gradient(to left, #08dbe2, #0882d0);
+        }
+        &:last-child {
+          background: linear-gradient(to left, #ff7965, #fdd76f);
+        }
+      }
     }
     .v-btn {
       width: 140px;
@@ -83,11 +95,15 @@
     <img class="wave" src="./wave.svg" alt />
     <img
       class="user"
-      :src="mode=='register'?require('./user.png'):require('./user_close_eye.png')"
+      :src="mode=='verify'?require('./user_close_eye.png'):require('./user.png')"
       alt
     />
     <div class="wrapper">
-      <div class="text-wrapper">
+      <div v-if="mode == 'logedin'" class="text-wrapper">
+        <h1>تبریک!</h1>
+        <h5>شما باموفقیت وارد سایت شده</h5>
+      </div>
+      <div v-else class="text-wrapper">
         <h1>به سایت راهین خوش آمدید</h1>
         <h5>برای استفاده از تمامی امکانات سایت وارد سایت شوید</h5>
       </div>
@@ -138,6 +154,10 @@
             </span>
           </v-btn>
         </div>
+        <div class="logedin pt-8" v-show="mode == 'logedin'">
+          <v-btn @click="$emit('hide')" to="/" rounded>مرور مطالب سایت</v-btn>
+          <v-btn @click="$emit('hide')" to="/profile/dashboard" rounded>ادامه مسیر هدایت تحصیلی</v-btn>
+        </div>
       </div>
     </div>
   </div>
@@ -187,7 +207,8 @@ export default Vue.extend({
             password: this.user.password
           })
           this.$store.commit('auth/set_token', data)
-          this.$dialog.destroy()
+          this.mode = 'logedin'
+          // this.$dialog.destroy()
         } catch (error) {
           this.$toast
             .error()

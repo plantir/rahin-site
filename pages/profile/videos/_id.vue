@@ -65,12 +65,17 @@ export default Vue.extend({
       type: Object as () => any
     }
   },
+  asyncData({ redirect, route }) {
+    // let path = route.path.replace('profile', '')
+    // redirect(path)
+  },
   data() {
     return {
       data: {}
     }
   },
   async mounted() {
+    console.log(this.$route)
     let { data } = await this.$service.video.get(this.$route.params.id)
     this.data = data
   },

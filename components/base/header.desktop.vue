@@ -119,7 +119,8 @@
     <div class="menuItems">
       <ul>
         <nuxt-link to="/" tag="li">صفحه اصلی</nuxt-link>
-        <nuxt-link to="faq" tag="li">سوالات متداول</nuxt-link>
+        <nuxt-link to="/blog" tag="li">اخبار و مقالات</nuxt-link>
+        <nuxt-link to="/faq" tag="li">سوالات متداول</nuxt-link>
         <nuxt-link to="/aboutus" tag="li">درباره ما</nuxt-link>
         <nuxt-link to="/contactus" tag="li">تماس با ما</nuxt-link>
       </ul>
@@ -137,8 +138,8 @@
           <template v-slot:activator="{ on }">
             <div class="user-wrapper" v-on="on">
               <div class="profile-wrapper">
-                <img v-if="user.gender == 'female'" src="/face/female.svg" />
-                <img v-else src="/face/male.svg" />
+                <img v-if="user.gender == 'female'" src="/face/female.jpg" />
+                <img v-else src="/face/male.jpg" />
               </div>
             </div>
           </template>
@@ -164,7 +165,7 @@
                 <v-icon>la-poll</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title>نتایج تست ها</v-list-item-title>
+                <v-list-item-title>نتایج</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
             <v-list-item color="primary" to="/profile/info">

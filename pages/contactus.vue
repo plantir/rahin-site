@@ -55,6 +55,7 @@
           align-items: center;
           justify-content: center;
           transition: padding ease-in-out 0.1s;
+          text-decoration: none;
           &:hover {
             padding-bottom: 8px;
           }
@@ -144,11 +145,7 @@
     </header>
     <v-container grid-list-xs>
       <v-layout row wrap>
-        <v-flex xs3>
-          <div class="image-wrapper">
-            <img src="~assets/img/soreal_1.jpeg" alt />
-          </div>
-        </v-flex>
+        <v-flex xs3></v-flex>
         <v-flex xs6>
           <div class="form-wrapper">
             <div class="form-title">سوال، پیشنهاد یا انتقاد خود را برای ما ارسال نمایید</div>
@@ -159,11 +156,7 @@
             <v-btn large color="grey" text>خالی کردن</v-btn>
           </div>
         </v-flex>
-        <v-flex xs3>
-          <div class="image-wrapper">
-            <img src="~assets/img/soreal_3.jpeg" alt />
-          </div>
-        </v-flex>
+        <v-flex xs3></v-flex>
       </v-layout>
     </v-container>
   </div>

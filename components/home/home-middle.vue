@@ -23,14 +23,13 @@
   > div {
     padding: 1rem 0;
   }
-  .start {
+  a.start {
     margin: 1rem auto;
     padding: 1rem;
-    color: #fff;
+    color: #fff !important;
     width: 200px;
     border-radius: 50px;
     @include orange-gradient;
-    // background-image: linear-gradient(to left, #fe7966, #ffda71);
     display: flex;
     align-items: center;
     span:first-child {
@@ -138,12 +137,18 @@
           سوالات جواب بده
         </p>
       </div>
-      <div class="start">
+      <nuxt-link v-if="user" class="start" to="/profile/dashboard">
         <span>شروع</span>
         <span>
-          <v-icon>keyboard_arrow_left</v-icon>
+          <v-icon>la-angle-left</v-icon>
         </span>
-      </div>
+      </nuxt-link>
+      <a v-else class="start" @click="login">
+        <span>شروع</span>
+        <span>
+          <v-icon>la-angle-left</v-icon>
+        </span>
+      </a>
     </div>
     <div class="middle_shape">
       <div>
@@ -161,5 +166,20 @@
 
 <script lang="ts">
 import Vue from 'vue'
-export default Vue.extend({})
+import LoginDialog from '@/components/auth/login.vue'
+export default Vue.extend({
+  methods: {
+    login() {
+      this.$dialog.show({
+        component: LoginDialog,
+        dialog_wrapper_custom_class: 'login-dialog'
+      })
+    }
+  },
+  computed: {
+    user() {
+      return this.$store.state.auth.user
+    }
+  }
+})
 </script>
