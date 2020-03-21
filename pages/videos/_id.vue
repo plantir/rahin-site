@@ -138,7 +138,7 @@ export default Vue.extend({
             field_name: field.name,
             video_name: video.name
           })
-          if (this.user.progress_level != data.progress_level) {
+          if (this.$route.params.id != data.progress_level) {
             this.$dialog
               .success()
               .message('مرحله با موفقیت تکمیل شد')
