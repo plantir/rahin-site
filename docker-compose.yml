@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  nuxt:
+    build: ./
+    container_name: rahin-site
+    restart: always
+    ports:
+      - '3001:3000'
+    command: 'npm run start'
