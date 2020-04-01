@@ -9,4 +9,3 @@ ADD . ${APP_ROOT}
 RUN yarn
 RUN yarn build
 
-ENV HOST 0.0.0.0
