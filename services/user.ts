@@ -17,6 +17,9 @@ export default class UserService extends BaseService<any> {
   seeVideo(data): Promise<{ data: any }> {
     return this.$axios.post('user/seeVideo', data)
   }
+  test() {
+    return this.$axios.get('test')
+  }
 }
 
 declare module 'vue/types/vue' {

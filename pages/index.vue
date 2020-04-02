@@ -11,6 +11,7 @@ section {
     <card />
     <homeMiddle />
     <homeFooter />
+    {{data}}
   </section>
 </template>
 <script lang="ts">
@@ -25,6 +26,24 @@ export default Vue.extend({
     card,
     homeFooter,
     homeMiddle
+  },
+  async asyncData({
+    isDev,
+    route,
+    store,
+    env,
+    params,
+    query,
+    req,
+    res,
+    redirect,
+    error,
+    $service
+  }) {
+    let { data } = await $service.user.test()
+    return {
+      data
+    }
   },
   mounted() {}
 })

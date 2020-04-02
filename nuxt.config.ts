@@ -1,19 +1,19 @@
 require('dotenv').config({
   path: process.env.NODE_ENV == 'development' ? '.env.development' : '.env'
-});
-import colors from 'vuetify/es5/util/colors';
-import 'vee-validate';
-import 'vrwebdesign-nuxt/modules/nuxt-axios';
-import 'vrwebdesign-nuxt/modules/nuxt-dialog';
-import 'vrwebdesign-nuxt/modules/nuxt-toast';
-import 'vrwebdesign-nuxt/modules/nuxt-loader';
-import 'vrwebdesign-nuxt/modules/nuxt-scroll-to';
-import 'vrwebdesign-nuxt/modules/nuxt-enums';
-import 'vrwebdesign-nuxt/modules/nuxt-authorization';
-import 'vuex';
-import './services/types/index';
+})
+import colors from 'vuetify/es5/util/colors'
+import 'vee-validate'
+import 'vrwebdesign-nuxt/modules/nuxt-axios'
+import 'vrwebdesign-nuxt/modules/nuxt-dialog'
+import 'vrwebdesign-nuxt/modules/nuxt-toast'
+import 'vrwebdesign-nuxt/modules/nuxt-loader'
+import 'vrwebdesign-nuxt/modules/nuxt-scroll-to'
+import 'vrwebdesign-nuxt/modules/nuxt-enums'
+import 'vrwebdesign-nuxt/modules/nuxt-authorization'
+import 'vuex'
+import './services/types/index'
 export default {
-  mode: 'spa',
+  mode: 'universal',
 
   server: {
     port: process.env.PORT, // default: 3000
@@ -81,7 +81,7 @@ export default {
    */
   plugins: [
     '@/plugins/iconLoader.js',
-    '@/plugins/globalComponent.js',
+    { src: '@/plugins/globalComponent.js', mode: 'client' },
     { src: '@/plugins/videoPlayer.js', mode: 'client' }
   ],
   /*
@@ -187,10 +187,10 @@ export default {
     extend(config, ctx) {
       config.node = {
         fs: 'empty'
-      };
-      const svgRule = config.module.rules.find(rule => rule.test.test('.svg'));
+      }
+      const svgRule = config.module.rules.find(rule => rule.test.test('.svg'))
 
-      svgRule.test = /\.(png|jpe?g|gif|webp)$/;
+      svgRule.test = /\.(png|jpe?g|gif|webp)$/
 
       config.module.rules.push({
         test: /\.svg$/,
@@ -206,7 +206,7 @@ export default {
             }
           }
         ]
-      });
+      })
     }
   }
-};
+}
